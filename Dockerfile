@@ -38,15 +38,15 @@ ENV APEX_VERSION 5.0.2
 RUN apt-get update && apt-get -y install libaio1 unzip && apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 #
-sed -i -e 's/101/0/g' /usr/sbin/policy-rc.d
+RUN sed -i -e 's/101/0/g' /usr/sbin/policy-rc.d
 
 # Install OpenSSH
 RUN apt-get update && apt-get install -y openssh-server
-RUN mkdir /var/run/sshd && echo 'root:admin' | chpasswd
+#RUN mkdir /var/run/sshd && echo 'root:admin' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 RUN echo "export VISIBLE=now" >> /etc/profile
-#RUN /usr/sbin/sshd
+RUN /usr/sbin/sshd
 
 ADD instantclient-* /tmp/
 ADD apex* /apex_5.0.2/
