@@ -1,7 +1,7 @@
 #!/bin/bash
 
-unzip /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
-unzip /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
+unzip -o /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
+unzip -o /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
 
 SQLPLUS=/instantclient_12_1/sqlplus
 SQLPLUS_ARGS="${USER}/${PASS}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=${HOST})(Port=${PORT}))(CONNECT_DATA=(SID=${SID}))) as sysdba"

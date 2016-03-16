@@ -10,11 +10,11 @@ Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5 and ORDS
 
 Run with 8080 and 1521 ports opened:
 
-    docker run -d -p 49160:22 8080:8080 -p 1521:1521 araczkowski/oracle-apex-ords
+    docker run -d -p 49160:22 -p 8080:8080 -p 1521:1521 araczkowski/oracle-apex-ords
 
 Connect to server via ssh with following setting:
 
-    ssh root@#IP_ADRESS_OF_DOC_ADAPTER# -p 49160
+    ssh root@localhost -p 49160
     password: admin
 
 Connect database with following setting:

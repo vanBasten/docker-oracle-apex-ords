@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Install OpenSSH
-apt-get install -y openssh-server &&
-mkdir /var/run/sshd &&
-echo 'root:admin' | chpasswd &&
-sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config &&
-sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd &&
-echo "export VISIBLE=now" >> /etc/profile &&
-
-
 # Prevent owner issues on mounted folders
 chown -R oracle:dba /u01/app/oracle
 rm -f /u01/app/oracle/product

@@ -44,6 +44,9 @@ ENV APEX_VERSION 5.0.2
 
 RUN apt-get update && apt-get -y install libaio1 unzip && apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
+# Install OpenSSH
+RUN apt-get update && apt-get install -y openssh-server && mkdir /var/run/sshd && echo 'root:admin' | chpasswd && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && echo "export VISIBLE=now" >> /etc/profile
+
 ADD instantclient-* /tmp/
 ADD apex* /apex_5.0.2/
 ADD upgrade_apex.sh /upgrade_apex.sh
@@ -51,3 +54,4 @@ ADD upgrade_apex.sh /upgrade_apex.sh
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/upgrade_apex.sh"]
+CMD [""]
