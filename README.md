@@ -1,35 +1,17 @@
-docker-oracle-xe-11g
+docker-oracle-apex-ords
 ============================
-[![](https://badge.imagelayers.io/sath89/oracle-xe-11g:latest.svg)](https://imagelayers.io/?images=sath89/oracle-xe-11g:latest 'Get your own badge on imagelayers.io')
+[![](https://badge.imagelayers.io/araczkowski/oracle-apex-ords:latest.svg)](https://imagelayers.io/?images=araczkowski/oracle-apex-ords:latest 'Get your own badge on imagelayers.io')
 
-Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS
-
-This **Dockerfile** is a [trusted build](https://registry.hub.docker.com/u/sath89/oracle-xe-11g/) of [Docker Registry](https://registry.hub.docker.com/).
+Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5 and ORDS
 
 ### Installation
 
-    docker pull sath89/oracle-xe-11g
+    docker pull araczkowski/oracle-apex-ords
 
 Run with 8080 and 1521 ports opened:
 
-    docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-xe-11g
+    docker run -d -p 8080:8080 -p 1521:1521 araczkowski/oracle-apex-ords
 
-Run with data on host and reuse it:
-
-    docker run -d -p 8080:8080 -p 1521:1521 -v /my/oracle/data:/u01/app/oracle sath89/oracle-xe-11g
-
-Run with customization of processes, sessions, transactions
-This customization is needed on the database initialization stage. If you are using mounted folder with DB files this is not used:
-
-    ##Consider this formula before customizing:
-    #processes=x
-    #sessions=x*1.1+5
-    #transactions=sessions*1.1
-    docker run -d -p 8080:8080 -p 1521:1521 -v /my/oracle/data:/u01/app/oracle\
-    -e processes=1000 \
-    -e sessions=1105 \
-    -e transactions=1215 \
-    sath89/oracle-xe-11g
 
 Connect database with following setting:
 
@@ -49,22 +31,3 @@ Connect to Oracle Application Express web management console with following sett
     workspace: INTERNAL
     user: ADMIN
     password: oracle
-
-Apex upgrade up to v 5.*
-
-    docker run -it --rm --volumes-from ${DB_CONTAINER_NAME} --link ${DB_CONTAINER_NAME}:oracle-database -e PASS=YourSYSPASS sath89/apex install
-Details could be found here: https://github.com/MaksymBilenko/docker-oracle-apex
-
-**In case of any issues please post it [here](https://github.com/MaksymBilenko/docker-oracle-xe-11g/issues).**
-
-
-**CHANGELOG**
-* Fixed issue with reusable mounted data
-* Fixed issue with ownership of mounted data folders
-* Fixed issue with Gracefull shutdown of service
-* Reduse size of image from 3.8G to 825Mb
-* Database initialization moved out of the image build phase. Now database initializes at the containeer startup with no database files mounted
-* Added database media reuse support outside of container
-* Added graceful shutdown on containeer stop
-* Removed sshd
-
