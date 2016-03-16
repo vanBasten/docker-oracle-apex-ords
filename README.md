@@ -16,6 +16,10 @@ Connect to server via ssh with following setting:
 
     ssh root@localhost -p 49160
     password: admin
+    or
+    docker exec -it araczkowski/oracle-apex-ords /bin/bash
+
+
 
 Connect database with following setting:
 

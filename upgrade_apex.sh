@@ -3,8 +3,8 @@
 unzip -o /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
 unzip -o /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
 
-SQLPLUS=/instantclient_12_1/sqlplus
-SQLPLUS_ARGS="${USER}/${PASS}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=${HOST})(Port=${PORT}))(CONNECT_DATA=(SID=${SID}))) as sysdba"
+SQLPLUS=sqlplus
+SQLPLUS_ARGS="sys/oracle@XE as sysdba"
 
 verify(){
 	echo "exit" | ${SQLPLUS} -L $SQLPLUS_ARGS | grep Connected > /dev/null
@@ -32,7 +32,7 @@ disable_http(){
 
 enable_http(){
 	echo "Turning on DBMS_XDB HTTP port"
-	echo "EXEC DBMS_XDB.SETHTTPPORT($HTTP_PORT);" | $SQLPLUS -S $SQLPLUS_ARGS
+	echo "EXEC DBMS_XDB.SETHTTPPORT(8080);" | $SQLPLUS -S $SQLPLUS_ARGS
 }
 
 get_oracle_home(){
@@ -69,16 +69,10 @@ unzip_apex(){
 }
 
 
-case $1 in
-	'install')
-		verify
-		unzip_apex
-		disable_http
-		apex_upgrade
-		apex_epg_config
-		enable_http
-		;;
-	*)
-		$1
-		;;
-esac
+
+verify
+unzip_apex
+disable_http
+apex_upgrade
+apex_epg_config
+enable_http

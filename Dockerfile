@@ -33,19 +33,20 @@ ENV sessions 555
 ENV transactions 610
 
 # upgrade to apex 5 after installation
-ENV LD_LIBRARY_PATH /instantclient_12_1
-ENV USER sys
-ENV PASS oracle
-ENV HOST oracle-database
-ENV PORT 1521
-ENV SID XE
-ENV HTTP_PORT 8080
 ENV APEX_VERSION 5.0.2
 
 RUN apt-get update && apt-get -y install libaio1 unzip && apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
+#
+sed -i -e 's/101/0/g' /usr/sbin/policy-rc.d
+
 # Install OpenSSH
-RUN apt-get update && apt-get install -y openssh-server && mkdir /var/run/sshd && echo 'root:admin' | chpasswd && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && echo "export VISIBLE=now" >> /etc/profile
+RUN apt-get update && apt-get install -y openssh-server
+RUN mkdir /var/run/sshd && echo 'root:admin' | chpasswd
+RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+RUN echo "export VISIBLE=now" >> /etc/profile
+#RUN /usr/sbin/sshd
 
 ADD instantclient-* /tmp/
 ADD apex* /apex_5.0.2/
@@ -53,5 +54,4 @@ ADD upgrade_apex.sh /upgrade_apex.sh
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/upgrade_apex.sh"]
 CMD [""]
