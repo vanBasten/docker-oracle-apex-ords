@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Install OpenSSH
+apt-get install -y openssh-server &&
+mkdir /var/run/sshd &&
+echo 'root:admin' | chpasswd &&
+sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd &&
+echo "export VISIBLE=now" >> /etc/profile &&
+
+
 # Prevent owner issues on mounted folders
 chown -R oracle:dba /u01/app/oracle
 rm -f /u01/app/oracle/product
@@ -36,7 +45,7 @@ case "$1" in
 			#Setting up processes, sessions, transactions.
 			sed -i -E "s/processes=[^)]+/processes=$processes/g" /u01/app/oracle/product/11.2.0/xe/config/scripts/init.ora
 			sed -i -E "s/processes=[^)]+/processes=$processes/g" /u01/app/oracle/product/11.2.0/xe/config/scripts/initXETemp.ora
-			
+
 			sed -i -E "s/sessions=[^)]+/sessions=$sessions/g" /u01/app/oracle/product/11.2.0/xe/config/scripts/init.ora
 			sed -i -E "s/sessions=[^)]+/sessions=$sessions/g" /u01/app/oracle/product/11.2.0/xe/config/scripts/initXETemp.ora
 
