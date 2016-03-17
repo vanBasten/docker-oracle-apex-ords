@@ -32,7 +32,7 @@ disable_http(){
 
 enable_http(){
 	echo "Turning on DBMS_XDB HTTP port"
-	echo "EXEC DBMS_XDB.SETHTTPPORT(8080);" | $SQLPLUS -S $SQLPLUS_ARGS
+	echo "EXEC DBMS_XDB.SETHTTPPORT(8888);" | $SQLPLUS -S $SQLPLUS_ARGS
 }
 
 get_oracle_home(){
@@ -60,9 +60,9 @@ apex_upgrade(){
 }
 
 unzip_apex(){
-	echo "Extracting Apex-${APEX_VERSION}"
-	cat /apex_${APEX_VERSION}/apex_${APEX_VERSION}.zip-aa > /tmp/apex.zip
-	cat /apex_${APEX_VERSION}/apex_${APEX_VERSION}.zip-ab >> /tmp/apex.zip
+	echo "Extracting Apex-5.0.2"
+	cat /apex_5.0.2/apex_5.0.2.zip-aa > /tmp/apex.zip
+	cat /apex_5.0.2/apex_5.0.2.zip-ab >> /tmp/apex.zip
 	rm -rf /u01/app/oracle/apex
 	unzip /tmp/apex.zip -d /u01/app/oracle/
 	rm -f /tmp/apex.zip

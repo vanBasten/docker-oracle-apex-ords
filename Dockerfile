@@ -43,6 +43,7 @@ ENV ORACLE_SID=XE
 
 EXPOSE 1521
 EXPOSE 8080
+EXPOSE 8888
 VOLUME ["/u01/app/oracle"]
 
 ENV processes 500
@@ -52,7 +53,6 @@ ENV transactions 610
 
 # APEX 5
 # upgrade to apex 5 after installation
-ENV APEX_VERSION 5.0.2
 
 RUN rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 ADD instantclient-* /tmp/
@@ -60,5 +60,5 @@ ADD apex* /apex_5.0.2/
 ADD upgrade_apex.sh /upgrade_apex.sh
 
 ADD entrypoint.sh /
-#ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD [""]

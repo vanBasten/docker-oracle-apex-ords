@@ -8,9 +8,9 @@ Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5 and ORDS
 
     docker pull araczkowski/oracle-apex-ords
 
-Run with 8080 and 1521 ports opened:
+Run with 8080, 8888, 1521, 22 ports opened:
 
-    docker run -d -p 49160:22 -p 8080:8080 -p 1521:1521 araczkowski/oracle-apex-ords
+    docker run -d -p 49160:22 -p 8080:8080 -p 8888:8888 -p 1521:1521 araczkowski/oracle-apex-ords
 
 Connect to server via ssh with following setting:
 
@@ -35,7 +35,7 @@ Password for SYS & SYSTEM:
 
 Connect to Oracle Application Express web management console with following settings:
 
-    http://localhost:8080/apex
+    http://localhost:8888/apex
     workspace: INTERNAL
     user: ADMIN
     password: oracle

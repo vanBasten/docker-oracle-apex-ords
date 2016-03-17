@@ -20,7 +20,7 @@ case "$1" in
 			echo "XE:$ORACLE_HOME:N" >> /etc/oratab
 			chown oracle:dba /etc/oratab
 			chown 664 /etc/oratab
-			printf "ORACLE_DBENABLED=false\nLISTENER_PORT=1521\nHTTP_PORT=8080\nCONFIGURE_RUN=true\n" > /etc/default/oracle-xe
+			printf "ORACLE_DBENABLED=false\nLISTENER_PORT=1521\nHTTP_PORT=8888\nCONFIGURE_RUN=true\n" > /etc/default/oracle-xe
 			rm -rf /u01/app/oracle-product/11.2.0/xe/dbs
 			ln -s /u01/app/oracle/dbs /u01/app/oracle-product/11.2.0/xe/dbs
 		else
@@ -43,7 +43,7 @@ case "$1" in
 			sed -i -E "s/transactions=[^)]+/transactions=$transactions/g" /u01/app/oracle/product/11.2.0/xe/config/scripts/init.ora
 			sed -i -E "s/transactions=[^)]+/transactions=$transactions/g" /u01/app/oracle/product/11.2.0/xe/config/scripts/initXETemp.ora
 
-			printf 8080\\n1521\\noracle\\noracle\\ny\\n | /etc/init.d/oracle-xe configure
+			printf 8888\\n1521\\noracle\\noracle\\ny\\n | /etc/init.d/oracle-xe configure
 
 			echo "Database initialized. Please visit http://#containeer:8080/apex to proceed with configuration"
 		fi
