@@ -54,9 +54,6 @@ apex_upgrade(){
 	$SQLPLUS -S $SQLPLUS_ARGS @apexins SYSAUX SYSAUX TEMP /i/ < /dev/null
 	echo "Updating apex images"
 	$SQLPLUS -S $SQLPLUS_ARGS @apxldimg.sql /u01/app/oracle < /dev/null
-	#Cleanup after run
-	cd /
-	rm -rf /u01/app/oracle/apex
 }
 
 unzip_apex(){
@@ -68,6 +65,11 @@ unzip_apex(){
 	rm -f /tmp/apex.zip
 }
 
+clean_up(){
+	#Cleanup after run
+	cd /
+	rm -rf /u01/app/oracle/apex
+}
 
 
 verify
@@ -76,3 +78,4 @@ disable_http
 apex_upgrade
 apex_epg_config
 enable_http
+clean_up
