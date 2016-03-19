@@ -57,6 +57,12 @@ apex_upgrade(){
 	$SQLPLUS -S $SQLPLUS_ARGS @apxldimg.sql /u01/app/oracle < /dev/null
 }
 
+install_ords(){
+	cd /u01/app/oracle/apex
+	echo "Installing ords..."
+	$SQLPLUS -S $SQLPLUS_ARGS @apex_rest_config.sql
+}
+
 unzip_apex(){
 	echo "Extracting Apex-5.0.2"
 	cat /files/apex_5.0.2.zip-aa > /tmp/apex.zip
@@ -68,8 +74,8 @@ unzip_apex(){
 
 clean_up(){
 	#Cleanup after run
-	cd /
-	rm -rf /u01/app/oracle/apex
+	rm -rf /files/instantclient-*
+	rm -rf /files/apex*
 }
 
 
@@ -79,4 +85,5 @@ disable_http
 apex_upgrade
 apex_epg_config
 enable_http
-clean_up
+install_ords
+#clean_up

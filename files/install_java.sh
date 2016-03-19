@@ -11,3 +11,6 @@ echo 'export JAVA_HOME' >> /etc/profile
 echo 'export PATH' >> /etc/profile
 update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/bin/java" 1
 source /etc/profile
+
+# clean
+rm -rf /files/jdk*

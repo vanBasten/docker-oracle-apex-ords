@@ -51,6 +51,12 @@ case "$1" in
 		/etc/init.d/oracle-xe start
 		echo "Database ready to use. Enjoy! ;)"
 
+		/etc/init.d/tomcat start
+		/etc/init.d/ssh start
+
+		./files/install_apex.sh
+
+
 		##
 		## Workaround for graceful shutdown. ....ing oracle... ‿( ́ ̵ _-`)‿
 		##
