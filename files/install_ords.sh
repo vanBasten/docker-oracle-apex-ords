@@ -8,7 +8,7 @@ cd /u01/ords
 
 java -jar ords.war
 # Enter the location to store configuration data: /u01
-
+# u01 localhost 1521 2 xe oracle oracle sys oracle oracle 1 oracle oracle 1 oracle oracle oracle oracle 2< /dev/null
 
 # clean
 rm -rf /files/ords*
@@ -18,7 +18,8 @@ rm -rf /u01/app/oracle/apex
 dpkg-reconfigure tzdata
 
 # alter users
-sqlplus -S sys/oracle@XE as sysdba < 'alter user APEX_PUBLIC_USER  identified by oracle account unlock;'
+cd /files
+sqlplus -S sys/oracle@XE as sysdba @ords_unlock_account.sql < /dev/null
 
 
 

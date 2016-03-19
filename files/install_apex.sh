@@ -60,7 +60,7 @@ apex_upgrade(){
 install_ords(){
 	cd /u01/app/oracle/apex
 	echo "Installing ords..."
-	$SQLPLUS -S $SQLPLUS_ARGS @apex_rest_config.sql
+	$SQLPLUS -S $SQLPLUS_ARGS @apex_rest_config.sql oracle oracle < /dev/null
 }
 
 unzip_apex(){
@@ -86,4 +86,4 @@ apex_upgrade
 apex_epg_config
 enable_http
 install_ords
-#clean_up
+clean_up

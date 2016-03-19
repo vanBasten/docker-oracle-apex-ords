@@ -1,5 +1,8 @@
 #!/bin/bash
 
+/etc/init.d/tomcat start
+/etc/init.d/ssh start
+
 # Prevent owner issues on mounted folders
 chown -R oracle:dba /u01/app/oracle
 rm -f /u01/app/oracle/product
@@ -50,9 +53,6 @@ case "$1" in
 
 		/etc/init.d/oracle-xe start
 		echo "Database ready to use. Enjoy! ;)"
-
-		/etc/init.d/tomcat start
-		/etc/init.d/ssh start
 
 		./files/install_apex.sh
 
