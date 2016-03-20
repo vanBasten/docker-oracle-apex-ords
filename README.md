@@ -6,7 +6,7 @@ Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5 and ORDS
 
 ### Building
 
-    docker build -t docker-oracle-apex-ords --build-arg PASSWORD=secret .
+    docker build -t oracle-apex-ords --build-arg PASSWORD=secret .
 
 ### Installation
 

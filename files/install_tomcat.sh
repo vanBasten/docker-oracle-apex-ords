@@ -1,8 +1,8 @@
 #!/bin/bash
 
-## TODO - why it works without -> tar zxf apache-tomcat-8.0.11.tar.gz ???
+# tar zxf apache-tomcat-8.0.11.tar.gz ???
 mv /files/apache-tomcat-8.0.11 /tomcat
-sed -i -e 's/password="OracleApexOrds"/password="'$PASSWORD'"/g' /files/tomcat-users.xml
+sed -i -e 's/password="secret"/password="'$PASSWORD'"/g' /files/tomcat-users.xml
 mv /files/tomcat-users.xml /tomcat/conf
 mv /files/tomcat8 /etc/init.d/tomcat
 chmod 755 /etc/init.d/tomcat
