@@ -46,7 +46,8 @@ case "$1" in
 			sed -i -E "s/transactions=[^)]+/transactions=$transactions/g" /u01/app/oracle/product/11.2.0/xe/config/scripts/init.ora
 			sed -i -E "s/transactions=[^)]+/transactions=$transactions/g" /u01/app/oracle/product/11.2.0/xe/config/scripts/initXETemp.ora
 
-			printf 8888\\n1521\\noracle\\noracle\\ny\\n | /etc/init.d/oracle-xe configure
+			echo "Configure database: -> "$PASSWORD
+			printf 8888\\n1521\\n$PASSWORD\\n$PASSWORD\\ny\\n | /etc/init.d/oracle-xe configure
 
 			echo "Database initialized. Please visit http://#containeer:8080/apex to proceed with configuration"
 		fi
@@ -54,7 +55,8 @@ case "$1" in
 		/etc/init.d/oracle-xe start
 		echo "Database ready to use. Enjoy! ;)"
 
-		./files/install_apex.sh
+		# if we want to start a installation after the DB is UP
+		#./files/install_apex.sh
 
 
 		##

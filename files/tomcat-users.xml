@@ -21,5 +21,5 @@
     <role rolename="manager-jmx"/>
     <role rolename="admin-gui"/>
     <role rolename="admin-script"/>
-    <user username="admin" password="admin" roles="manager-gui,manager-script,manager-jmx,admin-gui,admin-script"/>
+    <user username="admin" password="OracleApexOrds" roles="manager-gui,manager-script,manager-jmx,admin-gui,admin-script"/>
 </tomcat-users>

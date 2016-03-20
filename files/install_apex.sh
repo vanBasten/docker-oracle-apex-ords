@@ -5,23 +5,24 @@ unzip -o /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
 unzip -o /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
 
 SQLPLUS=sqlplus
-SQLPLUS_ARGS="sys/oracle@XE as sysdba"
+PASSWORD=${1:-secret}
+SQLPLUS_ARGS="sys/$PASSWORD@XE as sysdba"
 
-verify(){
+verify_connection(){
 	echo "exit" | ${SQLPLUS} -L $SQLPLUS_ARGS | grep Connected > /dev/null
 	if [ $? -eq 0 ];
 	then
 	   echo "Database Connetion is OK"
 	else
 	   echo -e "Database Connection Failed. Connection failed with:\n $SQLPLUS -S $SQLPLUS_ARGS\n `$SQLPLUS -S $SQLPLUS_ARGS` < /dev/null"
-	   echo -e "run example:\n docker run -it --rm --volumes-from $oracle_db_name:oracle-database --link $oracle_db_name:oracle-database sath89/apex install"
+	   echo -e "run example:\n docker run -it --rm --volumes-from $oracle_db_name:oracle-database --link $oracle_db_name:oracle-database apex_ords install"
 	   exit 1
 	fi
 
 	if [ "$(ls -A /u01/app/oracle)" ]; then
 		echo "Check Database files folder: OK"
 	else
-		echo -e "Failed to find database files, run example:\n docker run -it --rm --volumes-from $oracle_db_name:oracle-database --link $oracle_db_name:oracle-database sath89/apex install"
+		echo -e "Failed to find database files, run example:\n docker run -it --rm --volumes-from $oracle_db_name:oracle-database --link $oracle_db_name:oracle-database apex_ords install"
 		exit 1
 	fi
 }
@@ -60,7 +61,7 @@ apex_upgrade(){
 install_ords(){
 	cd /u01/app/oracle/apex
 	echo "Installing ords..."
-	$SQLPLUS -S $SQLPLUS_ARGS @apex_rest_config.sql oracle oracle < /dev/null
+	$SQLPLUS -S $SQLPLUS_ARGS @apex_rest_config.sql $PASSWORD $PASSWORD < /dev/null
 }
 
 unzip_apex(){
@@ -73,13 +74,13 @@ unzip_apex(){
 }
 
 clean_up(){
-	#Cleanup after run
+	echo "Cleanup after installation"
 	rm -rf /files/instantclient-*
 	rm -rf /files/apex*
 }
 
 
-verify
+verify_connection
 unzip_apex
 disable_http
 apex_upgrade
