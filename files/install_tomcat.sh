@@ -1,5 +1,8 @@
 #!/bin/bash
 
+exec >> /files/docker_log.txt
+exec 2>&1
+
 # tar zxf apache-tomcat-8.0.11.tar.gz ???
 mv /files/apache-tomcat-8.0.11 /tomcat
 sed -i -e 's/password="secret"/password="'$PASSWORD'"/g' /files/tomcat-users.xml

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+exec >> /files/docker_log.txt
+exec 2>&1
+
 # run this after the install_apex.sh
 
 cd /files

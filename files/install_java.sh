@@ -1,4 +1,8 @@
 #!/bin/bash
+
+exec >> /files/docker_log.txt
+exec 2>&1
+
 cat /files/jdk1.7.0_79.zip-aa >> /files/jdk1.7.0_79.zip
 cat /files/jdk1.7.0_79.zip-ab >> /files/jdk1.7.0_79.zip
 cat /files/jdk1.7.0_79.zip-ac >> /files/jdk1.7.0_79.zip

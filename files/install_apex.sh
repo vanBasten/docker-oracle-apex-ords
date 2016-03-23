@@ -1,5 +1,8 @@
 #!/bin/bash
 
+exec >> /files/docker_log.txt
+exec 2>&1
+
 mv /files/instantclient-* /tmp/
 unzip -o /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
 unzip -o /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
