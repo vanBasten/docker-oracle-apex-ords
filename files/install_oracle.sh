@@ -20,11 +20,6 @@ echo 'export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe' >> /etc/bash.bashrc
 echo 'export PATH=$ORACLE_HOME/bin:$PATH' >> /etc/bash.bashrc
 echo 'export ORACLE_SID=XE' >> /etc/bash.bashrc
 
-
-echo "Install APEX: -> "$PASSWORD
-install_apex $PASSWORD
-
-
 # clean
 apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 rm -rf /files/oracle-xe*

@@ -2,7 +2,7 @@ docker-oracle-apex-ords
 ============================
 [![](https://badge.imagelayers.io/araczkowski/oracle-apex-ords:latest.svg)](https://imagelayers.io/?images=araczkowski/oracle-apex-ords:latest 'Get your own badge on imagelayers.io')
 
-Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5 and ORDS
+Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5.0.3 and ORDS 3.0.4
 
 ### Building
 
@@ -14,7 +14,7 @@ Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5 and ORDS
 
 Run with 8080, 8888, 1521, 22 ports opened:
 
-    docker run -d -e PASSWORD='secret' --name apex-ords -p 49160:22 -p 8080:8080 -p 8888:8888 -p 1521:1521 araczkowski/oracle-apex-ords
+    docker run -d -e PASSWORD_FOR_UPDATE='secret' --name apex-ords -p 49160:22 -p 8080:8080 -p 8888:8888 -p 1521:1521 araczkowski/oracle-apex-ords
 
 Connect to server via ssh with following setting:
 
@@ -50,5 +50,4 @@ To update APEX to newest version:
 To install ORDS:
 
     cd /files
-    #follow the steps in install_ords
-    ./install_ords.sh
+    ./install_ords.sh secret

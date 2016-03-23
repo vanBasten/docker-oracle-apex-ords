@@ -3,12 +3,13 @@
 exec >> /files/docker_log.txt
 exec 2>&1
 
-mv /files/instantclient-* /tmp/
+PASSWORD=${1:-secret}
+
+cp  /files/instantclient* /tmp
 unzip -o /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
 unzip -o /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
 
 SQLPLUS=sqlplus
-PASSWORD=${1:-secret}
 SQLPLUS_ARGS="sys/$PASSWORD@XE as sysdba"
 
 verify_connection(){
@@ -18,7 +19,6 @@ verify_connection(){
 	   echo "Database Connetion is OK"
 	else
 	   echo -e "Database Connection Failed. Connection failed with:\n $SQLPLUS -S $SQLPLUS_ARGS\n `$SQLPLUS -S $SQLPLUS_ARGS` < /dev/null"
-	   echo -e "run example:\n docker run -it --rm --volumes-from $oracle_db_name:oracle-database --link $oracle_db_name:oracle-database apex_ords install"
 	   exit 1
 	fi
 
@@ -61,27 +61,19 @@ apex_upgrade(){
 	$SQLPLUS -S $SQLPLUS_ARGS @apxldimg.sql /u01/app/oracle < /dev/null
 }
 
-install_ords(){
+conf_rest(){
 	cd /u01/app/oracle/apex
-	echo "Installing ords..."
+	echo "Installing rest..."
 	$SQLPLUS -S $SQLPLUS_ARGS @apex_rest_config.sql $PASSWORD $PASSWORD < /dev/null
 }
 
 unzip_apex(){
 	echo "Extracting Apex-5.0.2"
-	cat /files/apex_5.0.2.zip-aa > /tmp/apex.zip
-	cat /files/apex_5.0.2.zip-ab >> /tmp/apex.zip
+	# cat /files/apex_5.0.2.zip-aa > /tmp/apex.zip
+	# cat /files/apex_5.0.2.zip-ab >> /tmp/apex.zip
 	rm -rf /u01/app/oracle/apex
-	unzip /tmp/apex.zip -d /u01/app/oracle/
-	rm -f /tmp/apex.zip
+	unzip /files/apex_5.0.3_en.zip -d /u01/app/oracle/
 }
-
-clean_up(){
-	echo "Cleanup after installation"
-	rm -rf /files/instantclient-*
-	rm -rf /files/apex*
-}
-
 
 verify_connection
 unzip_apex
@@ -89,5 +81,4 @@ disable_http
 apex_upgrade
 apex_epg_config
 enable_http
-install_ords
-clean_up
+conf_rest

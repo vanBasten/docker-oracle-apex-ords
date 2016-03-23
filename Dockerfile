@@ -11,6 +11,8 @@ ENV DEBIAN_FRONTEND noninteractive
 # all installation files
 ADD files/* /files/
 
+RUN apt-get update && apt-get install -y unzip vim
+
 # SSH
 RUN ./files/install_ssh.sh
 EXPOSE 22
@@ -22,7 +24,7 @@ RUN ./files/install_java.sh
 RUN ./files/install_tomcat.sh
 EXPOSE 8080
 
-# ORACLE XE with APEX and ORDS (todo)
+# ORACLE XE
 RUN ./files/install_oracle.sh
 EXPOSE 1521
 EXPOSE 8888

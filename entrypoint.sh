@@ -13,6 +13,14 @@ sed -i -E "s/PORT = [^)]+/PORT = 1521/g" /u01/app/oracle/product/11.2.0/xe/netwo
 
 /etc/init.d/oracle-xe start
 
+# if [ -z "$PASSWORD_FOR_UPDATE" ]; then
+#     echo "PASSWORD_FOR_UPDATE is empty"
+#     echo "Normal run (without the update)"
+# else
+#   echo "Run in APEX / ORDS update mode"
+#   ./files/install_apex.sh $PASSWORD_FOR_UPDATE
+#   ./files/install_ords.sh $PASSWORD_FOR_UPDATE
+# fi
 
-#just to prevent Docker container to exit, when run as daemon
+#to prevent Docker container to exit, when run as daemon
 tail -f /dev/null

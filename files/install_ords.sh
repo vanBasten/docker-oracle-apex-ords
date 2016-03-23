@@ -3,34 +3,35 @@
 exec >> /files/docker_log.txt
 exec 2>&1
 
-# run this after the install_apex.sh
+PASSWORD=${1:-secret}
 
-cd /files
-unzip ords.3.0.4.60.12.48.zip -d /u01/ords
+unzip -o /files/ords.3.0.4.60.12.48.zip -d /u01/ords
+
+sed -i -E 's:secret:'$PASSWORD':g' /files/ords_unlock_account.sql
+sed -i -E 's:secret:'$PASSWORD':g' /files/apex_al.xml
+sed -i -E 's:secret:'$PASSWORD':g' /files/apex_pu.xml
+sed -i -E 's:secret:'$PASSWORD':g' /files/apex_rt.xml
+sed -i -E 's:secret:'$PASSWORD':g' /files/apex.xml
+
+cp -rf /files/apex_*.xml /u01/ords/conf
+cp -rf /files/ords_unlock_account.sql /u01/ords
 cd /u01/ords
 
-java -jar ords.war
-# u01 localhost 1521 2 xe secret secret sys secret secret 1 secret secret 1 secret secret secret secret 2
-# Enter the location to store configuration data: /u01
-# < /dev/null
+
+java -jar ords.war configdir /u01
+
+sqlplus -S sys/$PASSWORD@XE as sysdba @ords_unlock_account.sql < /dev/null
+
 
 # solution for the problem with timezone
-dpkg-reconfigure tzdata
-
-# alter users
-cd /files
-sqlplus sys/secret@XE as sysdba
-alter user APEX_PUBLIC_USER  identified by secret account unlock;
-
+#dpkg-reconfigure tzdata
+echo "Europe/Warsaw" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
 
 
 service tomcat stop
 
-cp /u01/ords/ords.war /tomcat/webapps/
-mv /u01/app/oracle/apex/images /tomcat/webapps/i
+cp -rf /u01/ords/ords.war /tomcat/webapps/
+cp -rf /u01/app/oracle/apex/images /tomcat/webapps/i
 
 service tomcat start
-
-# clean
-rm -rf /files/ords*
-rm -rf /u01/app/oracle/apex
