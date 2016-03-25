@@ -1,12 +1,8 @@
 #!/bin/bash
-
-exec >> /files/docker_log.txt
-exec 2>&1
-
-cat /files/jdk1.7.0_79.zip-aa >> /files/jdk1.7.0_79.zip
-cat /files/jdk1.7.0_79.zip-ab >> /files/jdk1.7.0_79.zip
-cat /files/jdk1.7.0_79.zip-ac >> /files/jdk1.7.0_79.zip
 cd /files
+
+cat jdk1.7.0_79.zip-a* > jdk1.7.0_79.zip
+rm -f jdk1.7.0_79.zip-a*
 unzip jdk1.7.0_79.zip
 mv jdk1.7.0_79 /usr/local/java
 echo 'JAVA_HOME=/usr/local/java' >> /etc/profile

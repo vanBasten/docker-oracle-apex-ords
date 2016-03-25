@@ -1,8 +1,5 @@
 #!/bin/bash
 
-exec >> /files/docker_log.txt
-exec 2>&1
-
 PASSWORD=${1:-secret}
 
 unzip -o /files/ords.3.0.4.60.12.48.zip -d /u01/ords
@@ -15,11 +12,9 @@ sed -i -E 's:secret:'$PASSWORD':g' /files/apex.xml
 
 cp -rf /files/apex_*.xml /u01/ords/conf
 cp -rf /files/ords_unlock_account.sql /u01/ords
+# !!! INSTALL apex_rest_config.sql
 cd /u01/ords
-
-
 java -jar ords.war configdir /u01
-
 sqlplus -S sys/$PASSWORD@XE as sysdba @ords_unlock_account.sql < /dev/null
 
 
@@ -35,3 +30,5 @@ cp -rf /u01/ords/ords.war /tomcat/webapps/
 cp -rf /u01/app/oracle/apex/images /tomcat/webapps/i
 
 service tomcat start
+
+Isg123

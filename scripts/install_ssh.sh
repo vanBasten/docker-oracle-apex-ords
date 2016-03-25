@@ -1,8 +1,5 @@
 #!/bin/bash
 
-exec >> /files/docker_log.txt
-exec 2>&1
-
 apt-get update && apt-get install -y openssh-server
 mkdir /var/run/sshd
 echo 'root:'$PASSWORD | chpasswd

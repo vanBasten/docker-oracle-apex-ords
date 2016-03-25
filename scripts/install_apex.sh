@@ -1,16 +1,28 @@
 #!/bin/bash
 
-exec >> /files/docker_log.txt
-exec 2>&1
-
 PASSWORD=${1:-secret}
 
 cp  /files/instantclient* /tmp
 unzip -o /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
 unzip -o /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
 
-SQLPLUS=sqlplus
+SQLPLUS=/u01/app/oracle/product/11.2.0/xe/bin/sqlplus
 SQLPLUS_ARGS="sys/$PASSWORD@XE as sysdba"
+
+env
+
+ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
+PATH=$ORACLE_HOME/bin:$PATH
+ORACLE_SID=XE
+
+env
+
+echo "CONNECTION TEST IN PROGRESS..."
+echo "EXEC DBMS_XDB.GETHTTPPORT();" | $SQLPLUS -S $SQLPLUS_ARGS
+echo "XE" | /u01/app/oracle/product/11.2.0/xe/bin/tnsping
+
+./u01/app/oracle/product/11.2.0/xe/bin/tnsping xe
+
 
 verify_connection(){
 	echo "exit" | ${SQLPLUS} -L $SQLPLUS_ARGS | grep Connected > /dev/null
@@ -68,9 +80,7 @@ conf_rest(){
 }
 
 unzip_apex(){
-	echo "Extracting Apex-5.0.2"
-	# cat /files/apex_5.0.2.zip-aa > /tmp/apex.zip
-	# cat /files/apex_5.0.2.zip-ab >> /tmp/apex.zip
+	echo "Extracting Apex-5.0.3"
 	rm -rf /u01/app/oracle/apex
 	unzip /files/apex_5.0.3_en.zip -d /u01/app/oracle/
 }

@@ -8,31 +8,21 @@ ENV PASSWORD ${PASSWORD:-secret}
 # get rid of the message: "debconf: unable to initialize frontend: Dialog"
 ENV DEBIAN_FRONTEND noninteractive
 
+EXPOSE 22 1521 8080 8888
+
 # all installation files
-ADD files/* /files/
+COPY scripts /scripts
 
-RUN apt-get update && apt-get install -y unzip vim
+# ! for test the build process only !
+# ! to reduce the image size !
+# ! downoad the files is a part of the installation !
+COPY files /files
 
-# SSH
-RUN ./files/install_ssh.sh
-EXPOSE 22
+# start the installation
+RUN /scripts/install_main.sh
 
-# Install Oracle Java 7
-RUN ./files/install_java.sh
-
-# TOMCAT 8
-RUN ./files/install_tomcat.sh
-EXPOSE 8080
-
-# ORACLE XE
-RUN ./files/install_oracle.sh
-EXPOSE 1521
-EXPOSE 8888
-
-# Clear
-RUN rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 # ENTRYPOINT
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-CMD [""]
+#CMD [""]

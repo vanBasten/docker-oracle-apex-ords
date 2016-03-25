@@ -15,6 +15,8 @@ Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5.0.3 and O
 Run with 8080, 8888, 1521, 22 ports opened:
 
     docker run -d -e PASSWORD_FOR_UPDATE='secret' --name apex-ords -p 49160:22 -p 8080:8080 -p 8888:8888 -p 1521:1521 araczkowski/oracle-apex-ords
+    docker run -d --name apex-ords -p 49160:22 -p 8080:8080 -p 8888:8888 -p 1521:1521 araczkowski/oracle-apex-ords
+    
 
 Connect to server via ssh with following setting:
 
