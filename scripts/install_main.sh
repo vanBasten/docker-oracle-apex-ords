@@ -46,6 +46,7 @@ echo "Clean............................................."
 rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 rm -rf /files
 rm -rf /u01/app/oracle/apex
+rm -rf /u01/ords/ords.war
 apt-get clean
 echo "--------------------------------------------------"
 echo "DONE.............................................."

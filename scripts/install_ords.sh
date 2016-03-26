@@ -4,7 +4,7 @@
 unzip -o /files/ords.3.0.4.60.12.48.zip -d /u01/ords
 
 sed -i -E 's:secret:'$PASSWORD':g' /scripts/ords_unlock_account.sql
-sqlplus -S sys/$PASSWORD@XE as sysdba @ords_unlock_account.sql < /dev/null
+sqlplus -S sys/$PASSWORD@XE as sysdba @/scripts/ords_unlock_account.sql < /dev/null
 
 sed -i -E 's:secret:'$PASSWORD':g' /scripts/ords_params.properties
 cp -rf /scripts/ords_params.properties /u01/ords/params
