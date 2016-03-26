@@ -16,10 +16,9 @@ EXPOSE 22 1521 8080 8888
 # all installation files
 COPY scripts /scripts
 
-# ! for test the build process only !
-# ! to reduce the image size !
-# ! downoad the files is a part of the installation !
-#COPY files /files
+# ! to speed up the build process - only to tests the build process !!!
+# COPY files /files
+# ! to speed up the build process - only to tests the build process !!!
 
 # start the installation
 RUN /scripts/install_main.sh
@@ -28,4 +27,3 @@ RUN /scripts/install_main.sh
 # ENTRYPOINT
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-#CMD [""]
