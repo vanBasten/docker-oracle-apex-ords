@@ -8,7 +8,9 @@ apt-get update && apt-get install -y unzip vim curl
 # Download files
 echo "--------------------------------------------------"
 echo "Downloading all files............................."
-#/scripts/download_files.sh
+./scripts/download_files.sh
+#
+#
 echo "--------------------------------------------------"
 echo "Installing SSH...................................."
 ./scripts/install_ssh.sh
@@ -28,17 +30,16 @@ echo "--------------------------------------------------"
 echo "Installing ORACLE XE.............................."
 ./scripts/install_oracle.sh
 #
+#
 echo "--------------------------------------------------"
 echo "Installing ORACLE APEX............................"
-
-# # Update hostname
-sed -i -E "s/HOST = [^)]+/HOST = $HOSTNAME/g" /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora
-sed -i -E "s/HOST = [^)]+/HOST = $HOSTNAME/g" /u01/app/oracle/product/11.2.0/xe/network/admin/tnsnames.ora
-sed -i -E "s/PORT = [^)]+/PORT = 1521/g" /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora
-# #
-service oracle-xe restart
-# #
-./scripts/install_apex.sh $PASSWORD
+./scripts/install_apex.sh
+#
+#
+echo "--------------------------------------------------"
+echo "Installing ORACLE APEX............................"
+./scripts/install_ords.sh
+#
 #
 echo "--------------------------------------------------"
 echo "Clear............................................."

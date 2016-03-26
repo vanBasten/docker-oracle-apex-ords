@@ -9,8 +9,8 @@ sed -i -E "s/HOST = [^)]+/HOST = $HOSTNAME/g" /u01/app/oracle/product/11.2.0/xe/
 sed -i -E "s/PORT = [^)]+/PORT = 1521/g" /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora
 #
 /etc/init.d/oracle-xe start
-#/etc/init.d/tomcat start
-#/etc/init.d/ssh start
+/etc/init.d/tomcat start
+/etc/init.d/ssh start
 
 ##
 ## Workaround for graceful shutdown. ....ing oracle... ‿( ́ ̵ _-`)‿

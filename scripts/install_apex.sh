@@ -1,28 +1,13 @@
 #!/bin/bash
+#PASSWORD=${1:-secret}
 
-PASSWORD=${1:-secret}
+# cp  /files/instantclient* /tmp
+# unzip -o /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
+# unzip -o /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
 
-cp  /files/instantclient* /tmp
-unzip -o /tmp/instantclient-basic-linux.x64-12.1.0.2.0.zip -d /
-unzip -o /tmp/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip -d /
-
-SQLPLUS=/u01/app/oracle/product/11.2.0/xe/bin/sqlplus
+#SQLPLUS=/u01/app/oracle/product/11.2.0/xe/bin/sqlplus
+SQLPLUS=sqlplus
 SQLPLUS_ARGS="sys/$PASSWORD@XE as sysdba"
-
-env
-
-ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
-PATH=$ORACLE_HOME/bin:$PATH
-ORACLE_SID=XE
-
-env
-
-echo "CONNECTION TEST IN PROGRESS..."
-echo "EXEC DBMS_XDB.GETHTTPPORT();" | $SQLPLUS -S $SQLPLUS_ARGS
-echo "XE" | /u01/app/oracle/product/11.2.0/xe/bin/tnsping
-
-./u01/app/oracle/product/11.2.0/xe/bin/tnsping xe
-
 
 verify_connection(){
 	echo "exit" | ${SQLPLUS} -L $SQLPLUS_ARGS | grep Connected > /dev/null
@@ -86,9 +71,9 @@ unzip_apex(){
 }
 
 verify_connection
-unzip_apex
-disable_http
-apex_upgrade
-apex_epg_config
-enable_http
-conf_rest
+# unzip_apex
+# disable_http
+# apex_upgrade
+# apex_epg_config
+# enable_http
+# conf_rest

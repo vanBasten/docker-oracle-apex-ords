@@ -7,6 +7,9 @@ ENV PASSWORD ${PASSWORD:-secret}
 
 # get rid of the message: "debconf: unable to initialize frontend: Dialog"
 ENV DEBIAN_FRONTEND noninteractive
+ENV ORACLE_HOME /u01/app/oracle/product/11.2.0/xe
+ENV PATH $ORACLE_HOME/bin:$PATH
+ENV ORACLE_SID=XE
 
 EXPOSE 22 1521 8080 8888
 
@@ -16,7 +19,7 @@ COPY scripts /scripts
 # ! for test the build process only !
 # ! to reduce the image size !
 # ! downoad the files is a part of the installation !
-COPY files /files
+#COPY files /files
 
 # start the installation
 RUN /scripts/install_main.sh
