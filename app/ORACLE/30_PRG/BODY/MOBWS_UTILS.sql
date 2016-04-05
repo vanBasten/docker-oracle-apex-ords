@@ -945,7 +945,7 @@ getForm
       INTO
         l_srcContent
       FROM
-        K00.APP_SOURCE
+        APP_SOURCE
       WHERE
         id = l_srcId;
     END IF;
