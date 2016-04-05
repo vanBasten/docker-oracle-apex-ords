@@ -43,10 +43,10 @@ echo "Installing ORACLE APEX............................"
 #
 echo "--------------------------------------------------"
 echo "Clean............................................."
-rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
-rm -rf /files
-rm -rf /u01/app/oracle/apex
-rm -rf /u01/ords/ords.war
+echo "Removing temp files"
+rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* /files
+rm -rf /u01/app/oracle/apex /u01/ords/ords.war
+echo "apt-get clean"
 apt-get clean
 echo "--------------------------------------------------"
 echo "DONE.............................................."

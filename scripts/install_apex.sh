@@ -69,6 +69,11 @@ verify_connection
 unzip_apex
 disable_http
 apex_upgrade
+#TODO
+#echo "Removing APEX_040000"
+#echo "drop user APEX_040000 CASCADE;" | sqlplus "sys/$PASSWORD@XE as sysdba"
+#TODO ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/XE/sysaux.dbf' RESIZE ???M;
+#TODO disabled to save space
 apex_epg_config
 enable_http
 conf_rest

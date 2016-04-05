@@ -1,0 +1,9 @@
+1. run drop script:
+
+sqlplus sys/oracle@"(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT= 1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=xe)))" as sysdba
+@drop_isg.sql
+
+2. run install_all script:
+sqlplus sys/oracle@"(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT= 1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=xe)))" as sysdba
+
+@install_all.sql

@@ -1,0 +1,1623 @@
+SQL> Rem  Copyright (c) SVIETE 2010 - 2016. All Rights Reserved.
+SQL> PROMPT .
+.
+SQL> PROMPT . SVIETE ISG App Installation.
+. SVIETE ISG App Installation.
+SQL> PROMPT ...........................................
+...........................................
+SQL> @install_db.sql
+..install_db_main.sql
+
+Smallfile TABLESPACE created.
+
+
+User ISG created.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Session altered.
+
+..10_DDL\dm.sql
+
+Sequence SEQ_RESTFUL_REQUEST_LOG_PK created.
+
+
+Sequence SEQ_CLOBS_TABLE_PK created.
+
+
+Sequence "SEQ_ADDRESS_PK" created.
+
+
+Sequence "SEQ_APP_PRESENCE_STATUS_PK" created.
+
+
+Sequence "SEQ_APP_SETTING_PK" created.
+
+
+Sequence "SEQ_APP_SOURCE_PK" created.
+
+
+Sequence "SEQ_COUCH_SYNC_PK" created.
+
+
+Sequence "SEQ_CUSTOMER_ADDRESS_PK" created.
+
+
+Sequence "SEQ_CUSTOMER_PK" created.
+
+
+Sequence "SEQ_FILE_CONTENT_PK" created.
+
+
+Sequence "SEQ_GEO_LOCATION_PK" created.
+
+
+Sequence "SEQ_IMP_FILE_PK" created.
+
+
+Sequence "SEQ_IMPORT_LOG_PK" created.
+
+
+Sequence "SEQ_ITEM_ATTRIBUTE_PK" created.
+
+
+Sequence "SEQ_ITEM_PK" created.
+
+
+Sequence "SEQ_LUDZIE_PK" created.
+
+
+Sequence "SEQ_LUDZIE_ZLECENIA_PK" created.
+
+
+Sequence "SEQ_MESSAGE_TEMPLATE_PK" created.
+
+
+Sequence "SEQ_NOTIFICATION_CHANNEL_PK" created.
+
+
+Sequence "SEQ_PACKAGE_TYPE_PK" created.
+
+
+Sequence "SEQ_PAYMENT_TYPE_PK" created.
+
+
+Sequence "SEQ_PLAN_JOB_PK" created.
+
+
+Sequence "SEQ_PLAN_TASK_PK" created.
+
+
+Sequence "SEQ_PLAN_VEHICLE_PK" created.
+
+
+Sequence "SEQ_POJAZDY_PK" created.
+
+
+Sequence "SEQ_POJAZDY_ZLECENIA_PK" created.
+
+
+Sequence "SEQ_ROUTE_COST_PK" created.
+
+
+Sequence "SEQ_SERVICE_PK" created.
+
+
+Sequence "SEQ_TASK_ATTRIBUTE_PK" created.
+
+
+Sequence "SEQ_TASK_DOC_PK" created.
+
+
+Sequence "SEQ_TASK_ITEM_PK" created.
+
+
+Sequence "SEQ_TASK_ITEM_SERVICE_PK" created.
+
+
+Sequence "SEQ_TASK_PK" created.
+
+
+Sequence "SEQ_TASKS_ATTRIBUTES_PK" created.
+
+
+Sequence "SEQ_TASK_STATUS_PK" created.
+
+
+Sequence "SEQ_TASK_TYPE_PK" created.
+
+
+Sequence "SEQ_USER_LOCATION_PK" created.
+
+
+Sequence "SEQ_VEHICLE_PK" created.
+
+
+Sequence "SEQ_VEHICLE_TYPE_PK" created.
+
+
+Sequence "SEQ_ZLECENIA_PK" created.
+
+
+Table "ADDRESS" created.
+
+
+Table "APP_PRESENCE_STATUS" created.
+
+
+Table "APP_SETTING" created.
+
+
+Table "APP_SOURCE" created.
+
+
+Table "CLOBS_TABLE" created.
+
+
+Table "COUCH_SYNC" created.
+
+
+Table "CUSTOMER" created.
+
+
+Table "CUSTOMER_ADDRESS" created.
+
+
+Table "FILE_CONTENT" created.
+
+
+Table "GEO_LOCATION" created.
+
+
+Table "IMP_FILE" created.
+
+
+Table "IMPORT_LOG" created.
+
+
+Table "ITEM" created.
+
+
+Table "ITEM_ATTRIBUTE" created.
+
+
+Table "LUDZIE" created.
+
+
+Table "LUDZIE_ZLECENIA" created.
+
+
+Table "MESSAGE_TEMPLATE" created.
+
+
+Table "NOTIFICATION_CHANNEL" created.
+
+
+Table "PACKAGE_TYPE" created.
+
+
+Table "PAYMENT_TYPE" created.
+
+
+Table "PLAN_JOB" created.
+
+
+Table "PLAN_TASK" created.
+
+
+Table "PLAN_VEHICLE" created.
+
+
+Table "POJAZDY" created.
+
+
+Table "POJAZDY_ZLECENIA" created.
+
+
+Table "RESTFUL_REQUEST_LOG" created.
+
+
+Table "ROUTE_COST" created.
+
+
+Table "SERVICE" created.
+
+
+Table "TASK" created.
+
+
+Table "TASK_ATTRIBUTE" created.
+
+
+Table "TASK_DOC" created.
+
+
+Table "TASK_ITEM" created.
+
+
+Table "TASK_ITEM_SERVICE" created.
+
+
+Table "TASKS_ATTRIBUTES" created.
+
+
+Table "TASK_STATUS" created.
+
+
+Table "TASK_TYPE" created.
+
+
+Table "TEST_BLOB" created.
+
+
+Table "USER_LOCATION" created.
+
+
+Table "VEHICLE" created.
+
+
+Table "VEHICLE_TYPE" created.
+
+
+Table "ZLECENIA" created.
+
+
+View "LUDZIE_KALENDARZ" created.
+
+
+Unique index "ADDRESS_ID_PK" created.
+
+
+Unique index "CUSTOMER_ADDRESS_ID_PK" created.
+
+
+Unique index "CUSTOMER_ID_PK" created.
+
+
+Unique index "GEO_LOCATION_ID_PK" created.
+
+
+Unique index "ITEM_ID_PK" created.
+
+
+Unique index "LUDZIE_ZLECENIA_PK" created.
+
+
+Unique index "MESSAGE_TEMPLATE_PK" created.
+
+
+Unique index "NOTIFICATION_CHANNEL_PK" created.
+
+
+Unique index "PACKAGE_TYPE_PK" created.
+
+
+Unique index "PAYMENT_TYPE_PK" created.
+
+
+Unique index "PLAN_JOB_ID_PK" created.
+
+
+Unique index "PLAN_ROUTE_COST_ID_PK" created.
+
+
+Unique index "PLAN_TASK_ID_PK" created.
+
+
+Unique index "PLAN_VEHICLE_ID_PK" created.
+
+
+Unique index "POJAZDY_ZLECENIA_PK" created.
+
+
+Unique index "SERVICE_PK" created.
+
+
+Unique index "SYS_C0018131" created.
+
+
+Unique index "SYS_C0018132" created.
+
+
+Unique index "SYS_C0018133" created.
+
+
+Unique index "SYS_C0018136" created.
+
+
+Unique index "SYS_C0018137" created.
+
+
+Unique index "SYS_C0018141" created.
+
+
+Unique index "SYS_C0018143" created.
+
+
+Unique index "SYS_C0019627" created.
+
+
+Unique index "SYS_C0019702" created.
+
+
+Unique index "SYS_C0019705" created.
+
+
+Unique index "SYS_C0020830" created.
+
+
+Unique index "SYS_C0020834" created.
+
+
+Unique index "SYS_C0020850" created.
+
+
+Unique index "SYS_C0020856" created.
+
+
+Unique index "SYS_C0020863" created.
+
+
+Unique index "TASK_DOC_PK" created.
+
+
+Unique index "TASK_ITEM_PK" created.
+
+
+Unique index "TASK_ITEM_SERVICE_PK" created.
+
+
+Unique index "TASK_PK" created.
+
+
+Unique index "TASK_TYPE_PK" created.
+
+
+Unique index "VEHICLE_ID_PK" created.
+
+
+Unique index "VEHICLE_TYPE_ID_PK" created.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "APP_PRESENCE_STATUS" altered.
+
+
+Table "APP_PRESENCE_STATUS" altered.
+
+
+Table "APP_SETTING" altered.
+
+
+Table "APP_SETTING" altered.
+
+
+Table "APP_SOURCE" altered.
+
+
+Table "APP_SOURCE" altered.
+
+
+Table "APP_SOURCE" altered.
+
+
+Table "APP_SOURCE" altered.
+
+
+Table "CLOBS_TABLE" altered.
+
+
+Table "COUCH_SYNC" altered.
+
+
+Table "COUCH_SYNC" altered.
+
+
+Table "CUSTOMER" altered.
+
+
+Table "CUSTOMER" altered.
+
+
+Table "CUSTOMER" altered.
+
+
+Table "CUSTOMER" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "FILE_CONTENT" altered.
+
+
+Table "FILE_CONTENT" altered.
+
+
+Table "FILE_CONTENT" altered.
+
+
+Table "GEO_LOCATION" altered.
+
+
+Table "GEO_LOCATION" altered.
+
+
+Table "GEO_LOCATION" altered.
+
+
+Table "GEO_LOCATION" altered.
+
+
+Table "IMP_FILE" altered.
+
+
+Table "IMPORT_LOG" altered.
+
+
+Table "IMPORT_LOG" altered.
+
+
+Table "IMPORT_LOG" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "ITEM_ATTRIBUTE" altered.
+
+
+Table "ITEM_ATTRIBUTE" altered.
+
+
+Table "ITEM_ATTRIBUTE" altered.
+
+
+Table "ITEM_ATTRIBUTE" altered.
+
+
+Table "LUDZIE" altered.
+
+
+Table "LUDZIE" altered.
+
+
+Table "LUDZIE" altered.
+
+
+Table "LUDZIE_ZLECENIA" altered.
+
+
+Table "LUDZIE_ZLECENIA" altered.
+
+
+Table "LUDZIE_ZLECENIA" altered.
+
+
+Table "LUDZIE_ZLECENIA" altered.
+
+
+Table "MESSAGE_TEMPLATE" altered.
+
+
+Table "MESSAGE_TEMPLATE" altered.
+
+
+Table "MESSAGE_TEMPLATE" altered.
+
+
+Table "MESSAGE_TEMPLATE" altered.
+
+
+Table "NOTIFICATION_CHANNEL" altered.
+
+
+Table "NOTIFICATION_CHANNEL" altered.
+
+
+Table "NOTIFICATION_CHANNEL" altered.
+
+
+Table "NOTIFICATION_CHANNEL" altered.
+
+
+Table "NOTIFICATION_CHANNEL" altered.
+
+
+Table "NOTIFICATION_CHANNEL" altered.
+
+
+Table "NOTIFICATION_CHANNEL" altered.
+
+
+Table "PACKAGE_TYPE" altered.
+
+
+Table "PACKAGE_TYPE" altered.
+
+
+Table "PACKAGE_TYPE" altered.
+
+
+Table "PACKAGE_TYPE" altered.
+
+
+Table "PACKAGE_TYPE" altered.
+
+
+Table "PACKAGE_TYPE" altered.
+
+
+Table "PACKAGE_TYPE" altered.
+
+
+Table "PACKAGE_TYPE" altered.
+
+
+Table "PAYMENT_TYPE" altered.
+
+
+Table "PAYMENT_TYPE" altered.
+
+
+Table "PAYMENT_TYPE" altered.
+
+
+Table "PAYMENT_TYPE" altered.
+
+
+Table "PAYMENT_TYPE" altered.
+
+
+Table "PAYMENT_TYPE" altered.
+
+
+Table "PAYMENT_TYPE" altered.
+
+
+Table "PLAN_JOB" altered.
+
+
+Table "PLAN_JOB" altered.
+
+
+Table "PLAN_JOB" altered.
+
+
+Table "PLAN_TASK" altered.
+
+
+Table "PLAN_TASK" altered.
+
+
+Table "PLAN_TASK" altered.
+
+
+Table "PLAN_VEHICLE" altered.
+
+
+Table "PLAN_VEHICLE" altered.
+
+
+Table "PLAN_VEHICLE" altered.
+
+
+Table "POJAZDY" altered.
+
+
+Table "POJAZDY" altered.
+
+
+Table "POJAZDY" altered.
+
+
+Table "POJAZDY_ZLECENIA" altered.
+
+
+Table "POJAZDY_ZLECENIA" altered.
+
+
+Table "POJAZDY_ZLECENIA" altered.
+
+
+Table "POJAZDY_ZLECENIA" altered.
+
+
+Table "RESTFUL_REQUEST_LOG" altered.
+
+
+Table "ROUTE_COST" altered.
+
+
+Table "ROUTE_COST" altered.
+
+
+Table "ROUTE_COST" altered.
+
+
+Table "SERVICE" altered.
+
+
+Table "SERVICE" altered.
+
+
+Table "SERVICE" altered.
+
+
+Table "SERVICE" altered.
+
+
+Table "SERVICE" altered.
+
+
+Table "SERVICE" altered.
+
+
+Table "SERVICE" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK_ATTRIBUTE" altered.
+
+
+Table "TASK_ATTRIBUTE" altered.
+
+
+Table "TASK_DOC" altered.
+
+
+Table "TASK_DOC" altered.
+
+
+Table "TASK_DOC" altered.
+
+
+Table "TASK_DOC" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM_SERVICE" altered.
+
+
+Table "TASK_ITEM_SERVICE" altered.
+
+
+Table "TASK_ITEM_SERVICE" altered.
+
+
+Table "TASK_ITEM_SERVICE" altered.
+
+
+Table "TASKS_ATTRIBUTES" altered.
+
+
+Table "TASKS_ATTRIBUTES" altered.
+
+
+Table "TASKS_ATTRIBUTES" altered.
+
+
+Table "TASK_STATUS" altered.
+
+
+Table "TASK_STATUS" altered.
+
+
+Table "TASK_STATUS" altered.
+
+
+Table "TASK_STATUS" altered.
+
+
+Table "TASK_TYPE" altered.
+
+
+Table "TASK_TYPE" altered.
+
+
+Table "TASK_TYPE" altered.
+
+
+Table "TASK_TYPE" altered.
+
+
+Table "TASK_TYPE" altered.
+
+
+Table "TASK_TYPE" altered.
+
+
+Table "TASK_TYPE" altered.
+
+
+Table "TEST_BLOB" altered.
+
+
+Table "USER_LOCATION" altered.
+
+
+Table "USER_LOCATION" altered.
+
+
+Table "USER_LOCATION" altered.
+
+
+Table "VEHICLE" altered.
+
+
+Table "VEHICLE" altered.
+
+
+Table "VEHICLE" altered.
+
+
+Table "VEHICLE_TYPE" altered.
+
+
+Table "ZLECENIA" altered.
+
+
+Table "ZLECENIA" altered.
+
+
+Table "ZLECENIA" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "ITEM" altered.
+
+
+Table "LUDZIE_ZLECENIA" altered.
+
+
+Table "LUDZIE_ZLECENIA" altered.
+
+
+Table "MESSAGE_TEMPLATE" altered.
+
+
+Table "PLAN_TASK" altered.
+
+
+Table "PLAN_TASK" altered.
+
+
+Table "PLAN_VEHICLE" altered.
+
+
+Table "PLAN_VEHICLE" altered.
+
+
+Table "PLAN_VEHICLE" altered.
+
+
+Table "PLAN_VEHICLE" altered.
+
+
+Table "POJAZDY_ZLECENIA" altered.
+
+
+Table "POJAZDY_ZLECENIA" altered.
+
+
+Table "ROUTE_COST" altered.
+
+
+Table "ROUTE_COST" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK" altered.
+
+
+Table "TASK_DOC" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM" altered.
+
+
+Table "TASK_ITEM_SERVICE" altered.
+
+
+Table "TASK_ITEM_SERVICE" altered.
+
+
+Table "VEHICLE" altered.
+
+
+Trigger ADDRESS_AUDIT_TRG compiled
+
+
+Trigger "ADDRESS_AUDIT_TRG" altered.
+
+
+Trigger APP_PRESENCE_STATUS_AUDIT_TRG compiled
+
+
+Trigger "APP_PRESENCE_STATUS_AUDIT_TRG" altered.
+
+
+Trigger APP_SETTING_AUDIT_TRG compiled
+
+
+Trigger "APP_SETTING_AUDIT_TRG" altered.
+
+
+Trigger APP_SOURCE_AUDIT_TRG compiled
+
+
+Trigger "APP_SOURCE_AUDIT_TRG" altered.
+
+
+Trigger COUCH_SYNC_AUDIT_TRG compiled
+
+
+Trigger "COUCH_SYNC_AUDIT_TRG" altered.
+
+
+Trigger CUSTOMER_ADDRESS_AUDIT_TRG compiled
+
+
+Trigger "CUSTOMER_ADDRESS_AUDIT_TRG" altered.
+
+
+Trigger CUSTOMER_AUDIT_TRG compiled
+
+
+Trigger "CUSTOMER_AUDIT_TRG" altered.
+
+
+Trigger FILE_CONTENT_AUDIT_TRG compiled
+
+
+Trigger "FILE_CONTENT_AUDIT_TRG" altered.
+
+
+Trigger GEO_LOCATION_AUDIT_TRG compiled
+
+
+Trigger "GEO_LOCATION_AUDIT_TRG" altered.
+
+
+Trigger IMP_FILE_AUDIT_TRG compiled
+
+
+Trigger "IMP_FILE_AUDIT_TRG" altered.
+
+
+Trigger IMPORT_LOG_AUDIT_TRG compiled
+
+
+Trigger "IMPORT_LOG_AUDIT_TRG" altered.
+
+
+Trigger ITEM_ATTRIBUTE_AUDIT_TRG compiled
+
+
+Trigger "ITEM_ATTRIBUTE_AUDIT_TRG" altered.
+
+
+Trigger ITEM_AUDIT_TRG compiled
+
+
+Trigger "ITEM_AUDIT_TRG" altered.
+
+
+Trigger LUDZIE_AUDIT_TRG compiled
+
+
+Trigger "LUDZIE_AUDIT_TRG" altered.
+
+
+Trigger LUDZIE_ZLECENIA_AUDIT_TRG compiled
+
+
+Trigger "LUDZIE_ZLECENIA_AUDIT_TRG" altered.
+
+
+Trigger MESSAGE_TEMPLATE_AUDIT_TRG compiled
+
+
+Trigger "MESSAGE_TEMPLATE_AUDIT_TRG" altered.
+
+
+Trigger NOTIFICATION_CHANNEL_AUDIT_TRG compiled
+
+
+Trigger "NOTIFICATION_CHANNEL_AUDIT_TRG" altered.
+
+
+Trigger PACKAGE_TYPE_AUDIT_TRG compiled
+
+
+Trigger "PACKAGE_TYPE_AUDIT_TRG" altered.
+
+
+Trigger PAYMENT_TYPE_AUDIT_TRG compiled
+
+
+Trigger "PAYMENT_TYPE_AUDIT_TRG" altered.
+
+
+Trigger PLAN_JOB_AUDIT_TRG compiled
+
+
+Trigger "PLAN_JOB_AUDIT_TRG" altered.
+
+
+Trigger PLAN_TASK_AUDIT_TRG compiled
+
+
+Trigger "PLAN_TASK_AUDIT_TRG" altered.
+
+
+Trigger PLAN_VEHICLE_AUDIT_TRG compiled
+
+
+Trigger "PLAN_VEHICLE_AUDIT_TRG" altered.
+
+
+Trigger POJAZDY_AUDIT_TRG compiled
+
+
+Trigger "POJAZDY_AUDIT_TRG" altered.
+
+
+Trigger POJAZDY_ZLECENIA_AUDIT_TRG compiled
+
+
+Trigger "POJAZDY_ZLECENIA_AUDIT_TRG" altered.
+
+
+Trigger ROUTE_COST_AUDIT_TRG compiled
+
+
+Trigger "ROUTE_COST_AUDIT_TRG" altered.
+
+
+Trigger SERVICE_AUDIT_TRG compiled
+
+
+Trigger "SERVICE_AUDIT_TRG" altered.
+
+
+Trigger TASK_ATTRIBUTE_AUDIT_TRG compiled
+
+
+Trigger "TASK_ATTRIBUTE_AUDIT_TRG" altered.
+
+
+Trigger TASK_AUDIT_TRG compiled
+
+
+Trigger "TASK_AUDIT_TRG" altered.
+
+
+Trigger TASK_DOC_AUDIT_TRG compiled
+
+
+Trigger "TASK_DOC_AUDIT_TRG" altered.
+
+
+Trigger TASK_ITEM_AUDIT_TRG compiled
+
+
+Trigger "TASK_ITEM_AUDIT_TRG" altered.
+
+
+Trigger TASK_ITEM_SERVICE_AUDIT_TRG compiled
+
+
+Trigger "TASK_ITEM_SERVICE_AUDIT_TRG" altered.
+
+
+Trigger TASKS_ATTRIBUTES_AUDIT_TRG compiled
+
+
+Trigger "TASKS_ATTRIBUTES_AUDIT_TRG" altered.
+
+
+Trigger TASK_STATUS_AUDIT_TRG compiled
+
+
+Trigger "TASK_STATUS_AUDIT_TRG" altered.
+
+
+Trigger TASK_TYPE_AUDIT_TRG compiled
+
+
+Trigger "TASK_TYPE_AUDIT_TRG" altered.
+
+
+Trigger USER_LOCATION_AUDIT_TRG compiled
+
+
+Trigger "USER_LOCATION_AUDIT_TRG" altered.
+
+
+Trigger VEHICLE_AUDIT_TRG compiled
+
+
+Trigger "VEHICLE_AUDIT_TRG" altered.
+
+
+Trigger VEHICLE_TYPE_AUDIT_TRG compiled
+
+
+Trigger "VEHICLE_TYPE_AUDIT_TRG" altered.
+
+
+Trigger ZLECENIA_AUDIT_TRG compiled
+
+
+Trigger "ZLECENIA_AUDIT_TRG" altered.
+
+..20_DML\app_setting.sql
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+..20_DML\app_source.sql
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+..20_DML\presence_status.sql
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+..pljson\install.sql
+-- Setting optimize level --
+
+Session altered.
+
+-----------------------------------
+-- Compiling objects for PL/JSON --
+-----------------------------------
+
+PL/SQL procedure successfully completed.
+
+
+Type JSON_VALUE compiled
+
+
+Type JSON_VALUE_ARRAY compiled
+
+No errors.
+
+Type JSON_LIST compiled
+
+No errors.
+
+Type JSON compiled
+
+No errors.
+
+Package JSON_PARSER compiled
+
+
+Package body JSON_PARSER compiled
+
+
+Package JSON_PRINTER compiled
+
+
+Package body JSON_PRINTER compiled
+
+
+Type body JSON_VALUE compiled
+
+No errors.
+
+Package JSON_EXT compiled
+
+
+Package body JSON_EXT compiled
+
+
+Type body JSON compiled
+
+No errors.
+
+Type body JSON_LIST compiled
+
+No errors.
+
+Package JSON_AC compiled
+
+
+Package body JSON_AC compiled
+
+------------------------------------------
+-- Adding optional packages for PL/JSON --
+------------------------------------------
+
+Package JSON_DYN compiled
+
+
+Package body JSON_DYN compiled
+
+
+Package JSON_ML compiled
+
+
+Package body JSON_ML compiled
+
+
+Package JSON_XML compiled
+
+
+Package body JSON_XML compiled
+
+
+Package JSON_UTIL_PKG compiled
+
+
+Package body JSON_UTIL_PKG compiled
+
+
+Package JSON_HELPER compiled
+
+
+Package body JSON_HELPER compiled
+
+
+Type PLJSON_VARRAY compiled
+
+
+Type PLJSON_VTAB compiled
+
+
+Type PLJSON_NARRAY compiled
+
+
+Synonym PLJSON_TABLE created.
+
+
+Synonym JSON_TABLE created.
+
+
+Type PLJSON_TABLE_IMPL compiled
+
+
+Type body PLJSON_TABLE_IMPL compiled
+
+..30_PRG\all_spec.sql
+
+Package AS_READ_XLSX compiled
+
+
+Package CUR_UTILS compiled
+
+
+Package DEV_UTILS compiled
+
+
+Package IMP_UTILS compiled
+
+
+Package body MOBWS_UTILS compiled
+
+Errors: check compiler log
+
+Package PLAN_UTILS compiled
+
+
+Package PLUGIN_JQUERY_FILE_UPLOAD compiled
+
+
+Package STR_UTILS compiled
+
+
+Package ZPB_MOB_UTILS compiled
+
+
+Package WEB_UTILS compiled
+
+..30_PRG\all_body.sql
+
+Package body AS_READ_XLSX compiled
+
+
+Package body CUR_UTILS compiled
+
+Errors: check compiler log
+
+Package body DEV_UTILS compiled
+
+
+Package body IMP_UTILS compiled
+
+
+Package body MOBWS_UTILS compiled
+
+Errors: check compiler log
+
+Package body PLAN_UTILS compiled
+
+
+Package body PLUGIN_JQUERY_FILE_UPLOAD compiled
+
+
+Package body STR_UTILS compiled
+
+
+Package body ZPB_MOB_UTILS compiled
+
+Errors: check compiler log
+
+Package body WEB_UTILS compiled
+
+SQL> PROMPT .
+.
+SQL> rem ALTER SESSION SET CURRENT_SCHEMA="SYS"
+SQL> ALTER SESSION SET CURRENT_SCHEMA="SYS";
+
+Session altered.
+
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT COMPILE ALL SCHEMAS
+COMPILE ALL SCHEMAS
+SQL> PROMPT ...........................................
+...........................................
+SQL> EXEC DBMS_UTILITY.compile_schema(schema => '',compile_all => true)
+
+PL/SQL procedure successfully completed.
+
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT .
+.
+SQL> PROMPT .
+.
+SQL> rem ALTER SESSION SET CURRENT_SCHEMA="APEX_050000"
+SQL> ALTER SESSION SET CURRENT_SCHEMA="APEX_050000";
+
+Session altered.
+
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT APEX INSTALLATION
+APEX INSTALLATION
+SQL> PROMPT WORKSPACE
+WORKSPACE
+SQL> @40_APP\ISG.sql
+WORKSPACE 1838304746307669
+Creating workspace ISG...
+Creating Groups...
+Creating group grants...
+Creating Users...
+Check Compatibility...
+...news
+...links
+...bugs
+...events
+...features
+...tasks
+...feedback
+...task defaults
+...done
+SQL> PROMPT APLICATION
+APLICATION
+SQL> @40_APP\100.sql
+--application/set_environment
+APPLICATION 100 - ISG
+--application/delete_application
+--application/ui_types
+--application/create_application
+--application/shared_components/navigation/lists
+--application/shared_components/files
+--application/plugin_settings
+--application/shared_components/security/authorizations
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_processes
+--application/shared_components/logic/application_items
+--application/shared_components/logic/application_computations
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs
+--application/shared_components/navigation/trees
+--application/pages/page_groups
+--application/comments
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/user_interface/templates/page
+--application/shared_components/user_interface/templates/button
+--application/shared_components/user_interface/templates/region
+--application/shared_components/user_interface/templates/list
+--application/shared_components/user_interface/templates/report
+--application/shared_components/user_interface/templates/label
+--application/shared_components/user_interface/templates/breadcrumb
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/templates/calendar
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/theme_display_points
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/language
+--application/shared_components/globalization/translations
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/user_interface/shortcuts
+--application/shared_components/security/authentications
+--application/ui_types
+--application/shared_components/plugins/item_type/com_af_plugin_jq_fileupload
+--application/user_interfaces
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00002
+--application/pages/page_00003
+--application/pages/page_00004
+--application/pages/page_00005
+--application/pages/page_00006
+--application/pages/page_00007
+--application/pages/page_00008
+--application/pages/page_00009
+--application/pages/page_00010
+--application/pages/page_00011
+--application/pages/page_00012
+--application/pages/page_00013
+--application/pages/page_00014
+--application/pages/page_00015
+--application/pages/page_00016
+--application/pages/page_00017
+--application/pages/page_00018
+--application/pages/page_00020
+--application/pages/page_00021
+--application/pages/page_00022
+--application/pages/page_00023
+--application/pages/page_00024
+--application/pages/page_00025
+--application/pages/page_00026
+--application/pages/page_00027
+--application/pages/page_00100
+--application/pages/page_00102
+--application/pages/page_00112
+--application/pages/page_57565
+--application/deployment/definition
+--application/deployment/install
+--application/deployment/checks
+--application/deployment/buildoptions
+--application/end_environment
+...done
+SQL> PROMPT PLUGINS
+PLUGINS
+SQL> @40_APP\item_type_plugin_com_af_plugin_jq_fileupload.sql
+--application/ui_types
+--application/shared_components/plugins/item_type/com_af_plugin_jq_fileupload
+...done
+SQL> PROMPT .
+.
+SQL> PROMPT .
+.
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT RESTful WS
+RESTful WS
+SQL> @50_WS\ws.sql
+Set Application Offset...
+--application/restful_services/ws
+...done
+SQL> PROMPT .
+.
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT COMPILE ISG SCHEMA
+COMPILE ISG SCHEMA
+SQL> PROMPT ...........................................
+...........................................
+SQL> EXEC DBMS_UTILITY.compile_schema(schema => 'ISG',compile_all => true)
+
+PL/SQL procedure successfully completed.
+
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT TABLE TAPI PACKAGES
+TABLE TAPI PACKAGES
+SQL> prompt . genTableTapi(p_tableOwner => 'ISG')
+. genTableTapi(p_tableOwner => 'ISG')
+SQL> EXEC ISG.DEV_UTILS.genTableTapi(p_tableOwner => 'ISG')
+
+PL/SQL procedure successfully completed.
+
+SQL> PROMPT SIMPLE TABLE AUDIT TRIGERS
+SIMPLE TABLE AUDIT TRIGERS
+SQL> prompt . addSimpleTableAudit(p_tableOwner => 'ISG')
+. addSimpleTableAudit(p_tableOwner => 'ISG')
+SQL> EXEC ISG.DEV_UTILS.addSimpleTableAudit(p_tableOwner => 'ISG')
+
+PL/SQL procedure successfully completed.
+
+SQL> PROMPT .
+.
+SQL> PROMPT .
+.
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT Done.
+Done.
+SQL> SPOOL OFF

@@ -1,0 +1,428 @@
+set define off verify off feedback off
+whenever sqlerror exit sql.sqlcode rollback
+--------------------------------------------------------------------------------
+--
+-- ORACLE Application Express (APEX) export file
+--
+-- You should run the script connected to SQL*Plus as the Oracle user
+-- APEX_050000 or as the owner (parsing schema) of the application.
+--
+-- NOTE: Calls to apex_application_install override the defaults below.
+--
+--------------------------------------------------------------------------------
+begin
+wwv_flow_api.import_begin (
+ p_version_yyyy_mm_dd=>'2013.01.01'
+,p_default_workspace_id=>1838304746307669
+);
+end;
+/
+prompt  Set Application Offset...
+begin
+   -- SET APPLICATION OFFSET
+   wwv_flow_api.g_id_offset := nvl(wwv_flow_application_install.get_offset,0);
+null;
+end;
+/
+begin
+wwv_flow_api.remove_restful_service(
+ p_id=>wwv_flow_api.id(41179274533951781)
+,p_name=>'WS'
+);
+ 
+end;
+/
+prompt --application/restful_services/ws
+begin
+wwv_flow_api.create_restful_module(
+ p_id=>wwv_flow_api.id(41179274533951781)
+,p_name=>'WS'
+,p_uri_prefix=>'m'
+,p_parsing_schema=>'ISG'
+,p_origins_allowed=>'http://*'
+,p_items_per_page=>1000000
+,p_status=>'PUBLISHED'
+,p_row_version_number=>1
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(41179384014951781)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/adddoc'
+,p_priority=>9
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41179469335951781)
+,p_template_id=>wwv_flow_api.id(41179384014951781)
+,p_source_type=>'PLSQL'
+,p_format=>'DEFAULT'
+,p_method=>'POST'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'begin',
+'  :status := ISG.mobws_utils.addDoc(:title, :body, :mimetype, :mob_date,:mob_login, :Authorization);',
+'  :eSynergaConfirmation := ''eSynergaOk'';',
+'end;'))
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1832929112626784)
+,p_handler_id=>wwv_flow_api.id(41179469335951781)
+,p_name=>'Authorization'
+,p_bind_variable_name=>'Authorization'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1833033795631054)
+,p_handler_id=>wwv_flow_api.id(41179469335951781)
+,p_name=>'X-APEX-STATUS-CODE'
+,p_bind_variable_name=>'status'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'INT'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(41376781732519514)
+,p_handler_id=>wwv_flow_api.id(41179469335951781)
+,p_name=>'eSynergaConfirmation'
+,p_bind_variable_name=>'eSynergaConfirmation'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(41179588038955680)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/addloc'
+,p_priority=>9
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41179694618957646)
+,p_template_id=>wwv_flow_api.id(41179588038955680)
+,p_source_type=>'PLSQL'
+,p_format=>'DEFAULT'
+,p_method=>'POST'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'begin',
+'  :status := ISG.mobws_utils.addLoc(:lat, :lon, :mob_date, :mob_login, :Authorization);',
+'  :eSynergaConfirmation := ''eSynergaOk'';',
+'end;'))
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1832838529621704)
+,p_handler_id=>wwv_flow_api.id(41179694618957646)
+,p_name=>'Authorization'
+,p_bind_variable_name=>'Authorization'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1832773581610570)
+,p_handler_id=>wwv_flow_api.id(41179694618957646)
+,p_name=>'X-APEX-STATUS-CODE'
+,p_bind_variable_name=>'status'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'INT'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(41376881863528954)
+,p_handler_id=>wwv_flow_api.id(41179694618957646)
+,p_name=>'eSynergaConfirmation'
+,p_bind_variable_name=>'eSynergaConfirmation'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(41179771201960285)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/app?ver={ver}'
+,p_priority=>9
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41179881590963311)
+,p_template_id=>wwv_flow_api.id(41179771201960285)
+,p_source_type=>'PLSQL'
+,p_format=>'DEFAULT'
+,p_method=>'GET'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'begin ',
+' :status := ISG.MOBWS_UTILS.getVer(:ver, :Authorization);',
+'end;',
+' '))
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1833333370650001)
+,p_handler_id=>wwv_flow_api.id(41179881590963311)
+,p_name=>'Authorization'
+,p_bind_variable_name=>'Authorization'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1833299954641882)
+,p_handler_id=>wwv_flow_api.id(41179881590963311)
+,p_name=>'X-APEX-STATUS-CODE'
+,p_bind_variable_name=>'status'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'INT'
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(41320471902978093)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/appdata'
+,p_priority=>9
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41320584369981662)
+,p_template_id=>wwv_flow_api.id(41320471902978093)
+,p_source_type=>'PLSQL'
+,p_format=>'DEFAULT'
+,p_method=>'POST'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'begin',
+'',
+':status := ISG.MOBWS_UTILS.addAppData(:data, :Authorization);',
+':eSynergaConfirmation := ''eSynergaOk'';',
+'',
+'end;'))
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1833878592864798)
+,p_handler_id=>wwv_flow_api.id(41320584369981662)
+,p_name=>'Authorization'
+,p_bind_variable_name=>'Authorization'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1833738816863339)
+,p_handler_id=>wwv_flow_api.id(41320584369981662)
+,p_name=>'X-APEX-STATUS-CODE'
+,p_bind_variable_name=>'status'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'INT'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(41376966064533833)
+,p_handler_id=>wwv_flow_api.id(41320584369981662)
+,p_name=>'eSynergaConfirmation'
+,p_bind_variable_name=>'eSynergaConfirmation'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(41331568931137183)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/appinfo'
+,p_priority=>9
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41331686593142231)
+,p_template_id=>wwv_flow_api.id(41331568931137183)
+,p_source_type=>'PLSQL'
+,p_format=>'DEFAULT'
+,p_method=>'GET'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'begin',
+':status := ISG.MOBWS_UTILS.getVerInfo(:Authorization);',
+'end;',
+' '))
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1833940166870876)
+,p_handler_id=>wwv_flow_api.id(41331686593142231)
+,p_name=>'Authorization'
+,p_bind_variable_name=>'Authorization'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1834013116873836)
+,p_handler_id=>wwv_flow_api.id(41331686593142231)
+,p_name=>'X-APEX-STATUS-CODE'
+,p_bind_variable_name=>'status'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'INT'
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(41179987823965110)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/appsource?name={name}'
+,p_priority=>9
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41180068907969128)
+,p_template_id=>wwv_flow_api.id(41179987823965110)
+,p_source_type=>'MEDIA'
+,p_format=>'DEFAULT'
+,p_method=>'GET'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'select content_type, content from ISG.APP_SOURCE',
+'where id = ISG.mobws_utils.getLatestSourceId(:name)'))
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(41180173063970300)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/authentication'
+,p_priority=>9
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41180293149976075)
+,p_template_id=>wwv_flow_api.id(41180173063970300)
+,p_source_type=>'PLSQL'
+,p_format=>'DEFAULT'
+,p_method=>'GET'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'BEGIN  ',
+'',
+'  :status := ISG.MOBWS_UTILS.getUserInfo(:Authorization);',
+'',
+'END;'))
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1834159167890215)
+,p_handler_id=>wwv_flow_api.id(41180293149976075)
+,p_name=>'Authorization'
+,p_bind_variable_name=>'Authorization'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1834210486892165)
+,p_handler_id=>wwv_flow_api.id(41180293149976075)
+,p_name=>'X-APEX-STATUS-CODE'
+,p_bind_variable_name=>'status'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'INT'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41181776648972000)
+,p_template_id=>wwv_flow_api.id(41180173063970300)
+,p_source_type=>'PLSQL'
+,p_format=>'DEFAULT'
+,p_method=>'POST'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'begin',
+'',
+':status := ISG.MOBWS_UTILS.changePassword(:new_pass, :Authorization);',
+':eSynergaConfirmation := ''eSynergaOk'';',
+'',
+'end;'))
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1834461436904703)
+,p_handler_id=>wwv_flow_api.id(41181776648972000)
+,p_name=>'Authorization'
+,p_bind_variable_name=>'Authorization'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(1834300096903215)
+,p_handler_id=>wwv_flow_api.id(41181776648972000)
+,p_name=>'X-APEX-STATUS-CODE'
+,p_bind_variable_name=>'status'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'INT'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(41377081994538445)
+,p_handler_id=>wwv_flow_api.id(41181776648972000)
+,p_name=>'eSynergaConfirmation'
+,p_bind_variable_name=>'eSynergaConfirmation'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(41180388001353038)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/form?scan={scan}'
+,p_priority=>9
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(41180492156354225)
+,p_template_id=>wwv_flow_api.id(41180388001353038)
+,p_source_type=>'PLSQL'
+,p_format=>'DEFAULT'
+,p_method=>'GET'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'begin',
+':status := ISG.ISG_UTILS.getForm(:scan, :Authorization);',
+'end;'))
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(31575452116829851)
+,p_handler_id=>wwv_flow_api.id(41180492156354225)
+,p_name=>'Authorization'
+,p_bind_variable_name=>'Authorization'
+,p_source_type=>'HEADER'
+,p_access_method=>'IN'
+,p_param_type=>'STRING'
+);
+wwv_flow_api.create_restful_param(
+ p_id=>wwv_flow_api.id(31575565275833621)
+,p_handler_id=>wwv_flow_api.id(41180492156354225)
+,p_name=>'X-APEX-STATUS-CODE'
+,p_bind_variable_name=>'status'
+,p_source_type=>'HEADER'
+,p_access_method=>'OUT'
+,p_param_type=>'INT'
+);
+wwv_flow_api.create_restful_template(
+ p_id=>wwv_flow_api.id(1832176254587511)
+,p_module_id=>wwv_flow_api.id(41179274533951781)
+,p_uri_template=>'/{name}'
+,p_priority=>0
+,p_etag_type=>'NONE'
+);
+wwv_flow_api.create_restful_handler(
+ p_id=>wwv_flow_api.id(1832276668605076)
+,p_template_id=>wwv_flow_api.id(1832176254587511)
+,p_source_type=>'MEDIA'
+,p_format=>'DEFAULT'
+,p_method=>'GET'
+,p_require_https=>'NO'
+,p_source=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'select content_type, content from ISG.APP_SOURCE',
+'where id = ISG.mobws_utils.getLatestSourceId(:name)'))
+);
+end;
+/
+begin
+wwv_flow_api.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false));
+commit;
+end;
+/
+set verify on feedback on define on
+prompt  ...done
