@@ -33,7 +33,7 @@ IS
   l_json json_list;
 BEGIN
   BEGIN
-    WEB_UTILS.validateUser(pAuthorization);
+   l_user := WEB_UTILS.validateUser(pAuthorization);
   exception
   when others then
     htp.p(C_UNAUTHORIZED_MSG);
@@ -68,7 +68,7 @@ IS
 BEGIN
   --
   BEGIN
-    WEB_UTILS.validateUser(pAuthorization);
+    l_user := WEB_UTILS.validateUser(pAuthorization);
   EXCEPTION
   WHEN OTHERS THEN
     htp.p(C_UNAUTHORIZED_MSG);
@@ -77,13 +77,7 @@ BEGIN
 
   --
   WEB_UTILS.decodeBasicAuth(pAuthorization => pAuthorization, pUser => l_user, pPass =>l_pass);
-  select count(1) into l_ilosc_sum
-   from zlecenia z, ludzie_zlecenia lz, ludzie l
-    where z.id = lz.ZLECENIA_ID
-    and l.id = lz.LUDZIE_ID
-    and to_char(z.DATA_START_PLAN,'YYYY-MM-DD') = to_char(sysdate,'YYYY-MM-DD')
-    and z.DATA_KONIEC is null
-    and l.login =  l_user;
+
 
   l_json_list := JSON_DYN.executeList(q'!select z.TYP_ZLECENIA typ, count(1) ilosc
                                     from zlecenia z, ludzie_zlecenia lz, ludzie l
@@ -117,7 +111,7 @@ BEGIN
   --
   --
   BEGIN
-    WEB_UTILS.validateUser(pAuthorization);
+  l_user :=  WEB_UTILS.validateUser(pAuthorization);
   EXCEPTION
   WHEN OTHERS THEN
     htp.p(C_UNAUTHORIZED_MSG);

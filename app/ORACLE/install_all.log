@@ -1,0 +1,725 @@
+SQL> Rem  Copyright (c) SVIETE 2010 - 2016. All Rights Reserved.
+SQL> PROMPT .
+.
+SQL> PROMPT . SVIETE ISG App Installation.
+. SVIETE ISG App Installation.
+SQL> PROMPT ...........................................
+...........................................
+SQL> @install_db.sql
+..install_db_main.sql
+
+Smallfile TABLESPACE created.
+
+
+User ISG created.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Session altered.
+
+..10_DDL\dm.sql
+
+Sequence "SEQ_ADDRESS_PK" created.
+
+
+Sequence "SEQ_APP_PRESENCE_STATUS_PK" created.
+
+
+Sequence "SEQ_APP_SETTING_PK" created.
+
+
+Sequence "SEQ_APP_SOURCE_PK" created.
+
+
+Sequence "SEQ_ATTRIBUTE_PK" created.
+
+
+Sequence "SEQ_CLOBS_TABLE_PK" created.
+
+
+Sequence "SEQ_CUSTOMER_ADDRESS_PK" created.
+
+
+Sequence "SEQ_CUSTOMER_PK" created.
+
+
+Sequence "SEQ_FILE_CONTENT_PK" created.
+
+
+Sequence "SEQ_PROPERTY_PK" created.
+
+
+Sequence "SEQ_OBJECT_PK" created.
+
+
+Sequence "SEQ_RESTFUL_REQUEST_LOG_PK" created.
+
+
+Sequence "SEQ_USER_LOCATION_PK" created.
+
+
+Table "ADDRESS" created.
+
+
+Table "APP_PRESENCE_STATUS" created.
+
+
+Table "APP_SETTING" created.
+
+
+Table "APP_SOURCE" created.
+
+
+Table "ATTRIBUTE" created.
+
+
+Table "CLOBS_TABLE" created.
+
+
+Table "CUSTOMER" created.
+
+
+Table "CUSTOMER_ADDRESS" created.
+
+
+Table "FILE_CONTENT" created.
+
+
+Table "OBJECT" created.
+
+
+Table "PROPERTY" created.
+
+
+Table "RESTFUL_REQUEST_LOG" created.
+
+
+Table "USER_LOCATION" created.
+
+
+Unique index "ADDRESS_ID_PK" created.
+
+
+Unique index "APP_PRESENCE_STATUS_PK" created.
+
+
+Unique index "ATTRIBUTE_ID_PK" created.
+
+
+Unique index "CUSTOMER_ADDRESS_ID_PK" created.
+
+
+Unique index "CUSTOMER_ID_PK" created.
+
+
+Unique index "OBJECT_ID_PK" created.
+
+
+Unique index "PROPERTY_ID_PK" created.
+
+
+Unique index "SYS_C0018131" created.
+
+
+Unique index "SYS_C0018133" created.
+
+
+Unique index "SYS_C0018136" created.
+
+
+Unique index "SYS_C0018137" created.
+
+
+Unique index "SYS_C0018141" created.
+
+
+Unique index "SYS_C0018143" created.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "ADDRESS" altered.
+
+
+Table "APP_PRESENCE_STATUS" altered.
+
+
+Table "APP_PRESENCE_STATUS" altered.
+
+
+Table "APP_SETTING" altered.
+
+
+Table "APP_SOURCE" altered.
+
+
+Table "APP_SOURCE" altered.
+
+
+Table "APP_SOURCE" altered.
+
+
+Table "APP_SOURCE" altered.
+
+
+Table "ATTRIBUTE" altered.
+
+
+Table "ATTRIBUTE" altered.
+
+
+Table "ATTRIBUTE" altered.
+
+
+Table "ATTRIBUTE" altered.
+
+
+Table "ATTRIBUTE" altered.
+
+
+Table "ATTRIBUTE" altered.
+
+
+Table "CLOBS_TABLE" altered.
+
+
+Table "CUSTOMER" altered.
+
+
+Table "CUSTOMER" altered.
+
+
+Table "CUSTOMER" altered.
+
+
+Table "CUSTOMER" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "FILE_CONTENT" altered.
+
+
+Table "FILE_CONTENT" altered.
+
+
+Table "FILE_CONTENT" altered.
+
+
+Table "OBJECT" altered.
+
+
+Table "OBJECT" altered.
+
+
+Table "OBJECT" altered.
+
+
+Table "OBJECT" altered.
+
+
+Table "OBJECT" altered.
+
+
+Table "OBJECT" altered.
+
+
+Table "PROPERTY" altered.
+
+
+Table "PROPERTY" altered.
+
+
+Table "PROPERTY" altered.
+
+
+Table "PROPERTY" altered.
+
+
+Table "PROPERTY" altered.
+
+
+Table "PROPERTY" altered.
+
+
+Table "RESTFUL_REQUEST_LOG" altered.
+
+
+Table "USER_LOCATION" altered.
+
+
+Table "USER_LOCATION" altered.
+
+
+Table "USER_LOCATION" altered.
+
+
+Table "ATTRIBUTE" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "CUSTOMER_ADDRESS" altered.
+
+
+Table "OBJECT" altered.
+
+
+Table "PROPERTY" altered.
+
+..20_DML\app_setting.sql
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+..20_DML\app_source.sql
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+..20_DML\presence_status.sql
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+..pljson\install.sql
+-- Setting optimize level --
+
+Session altered.
+
+-----------------------------------
+-- Compiling objects for PL/JSON --
+-----------------------------------
+
+PL/SQL procedure successfully completed.
+
+
+Type JSON_VALUE compiled
+
+
+Type JSON_VALUE_ARRAY compiled
+
+No errors.
+
+Type JSON_LIST compiled
+
+No errors.
+
+Type JSON compiled
+
+No errors.
+
+Package JSON_PARSER compiled
+
+
+Package body JSON_PARSER compiled
+
+
+Package JSON_PRINTER compiled
+
+
+Package body JSON_PRINTER compiled
+
+
+Type body JSON_VALUE compiled
+
+No errors.
+
+Package JSON_EXT compiled
+
+
+Package body JSON_EXT compiled
+
+
+Type body JSON compiled
+
+No errors.
+
+Type body JSON_LIST compiled
+
+No errors.
+
+Package JSON_AC compiled
+
+
+Package body JSON_AC compiled
+
+------------------------------------------
+-- Adding optional packages for PL/JSON --
+------------------------------------------
+
+Package JSON_DYN compiled
+
+
+Package body JSON_DYN compiled
+
+
+Package JSON_ML compiled
+
+
+Package body JSON_ML compiled
+
+
+Package JSON_XML compiled
+
+
+Package body JSON_XML compiled
+
+
+Package JSON_UTIL_PKG compiled
+
+
+Package body JSON_UTIL_PKG compiled
+
+
+Package JSON_HELPER compiled
+
+
+Package body JSON_HELPER compiled
+
+
+Type PLJSON_VARRAY compiled
+
+
+Type PLJSON_VTAB compiled
+
+
+Type PLJSON_NARRAY compiled
+
+
+Synonym PLJSON_TABLE created.
+
+
+Synonym JSON_TABLE created.
+
+
+Type PLJSON_TABLE_IMPL compiled
+
+
+Type body PLJSON_TABLE_IMPL compiled
+
+..30_PRG\all_spec.sql
+
+Package AS_READ_XLSX compiled
+
+
+Package DEV_UTILS compiled
+
+
+Package MOBWS_UTILS compiled
+
+
+Package PLUGIN_JQUERY_FILE_UPLOAD compiled
+
+
+Package STR_UTILS compiled
+
+
+Package ZPB_MOB_UTILS compiled
+
+
+Package WEB_UTILS compiled
+
+..30_PRG\all_body.sql
+
+Package body AS_READ_XLSX compiled
+
+
+Package body DEV_UTILS compiled
+
+
+Package body MOBWS_UTILS compiled
+
+
+Package body PLUGIN_JQUERY_FILE_UPLOAD compiled
+
+
+Package body STR_UTILS compiled
+
+
+Package body ZPB_MOB_UTILS compiled
+
+
+Package body WEB_UTILS compiled
+
+SQL> PROMPT .
+.
+SQL> rem ALTER SESSION SET CURRENT_SCHEMA="SYS"
+SQL> ALTER SESSION SET CURRENT_SCHEMA="SYS";
+
+Session altered.
+
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT COMPILE ALL SCHEMAS
+COMPILE ALL SCHEMAS
+SQL> PROMPT ...........................................
+...........................................
+SQL> EXEC DBMS_UTILITY.compile_schema(schema => '',compile_all => true)
+
+PL/SQL procedure successfully completed.
+
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT .
+.
+SQL> PROMPT .
+.
+SQL> rem ALTER SESSION SET CURRENT_SCHEMA="APEX_050000"
+SQL> ALTER SESSION SET CURRENT_SCHEMA="APEX_050000";
+
+Session altered.
+
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT APEX INSTALLATION
+APEX INSTALLATION
+SQL> PROMPT WORKSPACE
+WORKSPACE
+SQL> @40_APP\ISG.sql
+WORKSPACE 1838304746307669
+Creating workspace ISG...
+Creating Groups...
+Creating group grants...
+Creating Users...
+Check Compatibility...
+...news
+...links
+...bugs
+...events
+...features
+...tasks
+...feedback
+...task defaults
+...done
+SQL> PROMPT APLICATION
+APLICATION
+SQL> @40_APP\100.sql
+--application/set_environment
+APPLICATION 100 - ISG
+--application/delete_application
+--application/ui_types
+--application/create_application
+--application/shared_components/navigation/lists
+--application/shared_components/files
+--application/plugin_settings
+--application/shared_components/security/authorizations
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_processes
+--application/shared_components/logic/application_items
+--application/shared_components/logic/application_computations
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs
+--application/shared_components/navigation/trees
+--application/pages/page_groups
+--application/comments
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/user_interface/templates/page
+--application/shared_components/user_interface/templates/button
+--application/shared_components/user_interface/templates/region
+--application/shared_components/user_interface/templates/list
+--application/shared_components/user_interface/templates/report
+--application/shared_components/user_interface/templates/label
+--application/shared_components/user_interface/templates/breadcrumb
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/templates/calendar
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/theme_display_points
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/language
+--application/shared_components/globalization/translations
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/user_interface/shortcuts
+--application/shared_components/security/authentications
+--application/ui_types
+--application/shared_components/plugins/item_type/com_af_plugin_jq_fileupload
+--application/user_interfaces
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00002
+--application/pages/page_00003
+--application/pages/page_00004
+--application/pages/page_00005
+--application/pages/page_00006
+--application/pages/page_00007
+--application/pages/page_00008
+--application/pages/page_00009
+--application/pages/page_00010
+--application/pages/page_00011
+--application/pages/page_00012
+--application/pages/page_00013
+--application/pages/page_00014
+--application/pages/page_00015
+--application/pages/page_00016
+--application/pages/page_00017
+--application/pages/page_00018
+--application/pages/page_00020
+--application/pages/page_00021
+--application/pages/page_00022
+--application/pages/page_00023
+--application/pages/page_00024
+--application/pages/page_00025
+--application/pages/page_00026
+--application/pages/page_00027
+--application/pages/page_00100
+--application/pages/page_00102
+--application/pages/page_00112
+--application/pages/page_57565
+--application/deployment/definition
+--application/deployment/install
+--application/deployment/checks
+--application/deployment/buildoptions
+--application/end_environment
+...done
+SQL> PROMPT PLUGINS
+PLUGINS
+SQL> @40_APP\item_type_plugin_com_af_plugin_jq_fileupload.sql
+--application/ui_types
+--application/shared_components/plugins/item_type/com_af_plugin_jq_fileupload
+...done
+SQL> PROMPT .
+.
+SQL> PROMPT .
+.
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT RESTful WS
+RESTful WS
+SQL> @50_WS\ws.sql
+Set Application Offset...
+--application/restful_services/ws
+...done
+SQL> PROMPT .
+.
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT COMPILE ISG SCHEMA
+COMPILE ISG SCHEMA
+SQL> PROMPT ...........................................
+...........................................
+SQL> EXEC DBMS_UTILITY.compile_schema(schema => 'ISG',compile_all => true)
+
+PL/SQL procedure successfully completed.
+
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT TABLE TAPI PACKAGES
+TABLE TAPI PACKAGES
+SQL> prompt . genTableTapi(p_tableOwner => 'ISG')
+. genTableTapi(p_tableOwner => 'ISG')
+SQL> EXEC BEGIN ISG.DEV_UTILS.genTableTapi(p_tableOwner => 'ISG'); EXCEPTION WHEN OTHERS THEN ISG.DEV_UTILS.genTableTapi(p_tableOwner => 'ISG'); END
+
+PL/SQL procedure successfully completed.
+
+SQL> PROMPT SIMPLE TABLE AUDIT TRIGERS
+SIMPLE TABLE AUDIT TRIGERS
+SQL> prompt . addSimpleTableAudit(p_tableOwner => 'ISG')
+. addSimpleTableAudit(p_tableOwner => 'ISG')
+SQL> EXEC ISG.DEV_UTILS.addSimpleTableAudit(p_tableOwner => 'ISG')
+
+PL/SQL procedure successfully completed.
+
+SQL> PROMPT .
+.
+SQL> PROMPT .
+.
+SQL> PROMPT ...........................................
+...........................................
+SQL> PROMPT Done.
+Done.
+SQL> SPOOL OFF

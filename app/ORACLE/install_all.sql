@@ -38,7 +38,7 @@ EXEC DBMS_UTILITY.compile_schema(schema => 'ISG',compile_all => true);
 PROMPT ...........................................
 PROMPT TABLE TAPI PACKAGES
 prompt . genTableTapi(p_tableOwner => 'ISG')
-EXEC ISG.DEV_UTILS.genTableTapi(p_tableOwner => 'ISG');
+EXEC BEGIN ISG.DEV_UTILS.genTableTapi(p_tableOwner => 'ISG'); EXCEPTION WHEN OTHERS THEN ISG.DEV_UTILS.genTableTapi(p_tableOwner => 'ISG'); END;
 PROMPT SIMPLE TABLE AUDIT TRIGERS
 prompt . addSimpleTableAudit(p_tableOwner => 'ISG')
 EXEC ISG.DEV_UTILS.addSimpleTableAudit(p_tableOwner => 'ISG');
