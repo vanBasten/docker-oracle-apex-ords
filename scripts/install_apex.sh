@@ -60,9 +60,9 @@ conf_rest(){
 }
 
 unzip_apex(){
-	echo "Extracting Apex-5.0.3"
+	echo "Extracting Apex-5.0.4"
 	rm -rf /u01/app/oracle/apex
-	unzip /files/apex_5.0.3_en.zip -d /u01/app/oracle/
+	unzip /files/apex_5.0.4_en.zip -d /u01/app/oracle/
 }
 
 verify_connection

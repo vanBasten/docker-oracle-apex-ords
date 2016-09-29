@@ -10,7 +10,7 @@ downloadFiles () {
     oracle-xe_11.2.0-1.0_amd64.debaa
     oracle-xe_11.2.0-1.0_amd64.debab
     oracle-xe_11.2.0-1.0_amd64.debac
-    apex_5.0.3_en.zip
+    apex_5.0.4_en.zip
     ords.3.0.4.60.12.48.zip
 		tomcat-8.0.11.tar.gz
 		jre-7u79-linux-x64.tar.gz
