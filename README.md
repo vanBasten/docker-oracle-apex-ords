@@ -1,14 +1,12 @@
 docker-oracle-apex-ords
 ============================
-[![](https://badge.imagelayers.io/araczkowski/oracle-apex-ords:latest.svg)](https://imagelayers.io/?images=araczkowski/oracle-apex-ords:latest 'Get your own badge on imagelayers.io')
 
-Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5.0.4 and ORDS 3.0.7
-
-## Own image, with custom password
+Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5.1 and ORDS 3.0.9
+# Option 1. Own image, with custom password
 
 ### Get the image code from github
 
-    git clone https://github.com/araczkowski/docker-oracle-apex-ords.git <own-image-name>
+    git clone --depth=1 https://github.com/araczkowski/docker-oracle-apex-ords.git <own-image-name>
     cd <own-image-name>
 
 ### Building your own image, with custom password
@@ -19,7 +17,7 @@ Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5.0.4 and O
 
     docker run -d --name ora -p 49160:22 -p 8080:8080 -p 1521:1521 <own-image-name>
 
-## Get the prebuilt image from docker hub
+# Option 2. Get the prebuilt image from docker hub
 
 ### Installation
 
