@@ -1,7 +1,7 @@
 docker-oracle-apex-ords
 ============================
 
-Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5.1 and ORDS 3.0.9
+Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS with APEX 5.1.1 and ORDS 3.0.9 on Tomcat
 # Option 1. Own docker image, with custom password
 
 #### Get the image code from github:
