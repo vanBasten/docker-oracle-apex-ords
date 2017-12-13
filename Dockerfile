@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER Andrzej Raczkowski <araczkowski@gmail.com>
 
 ARG PASSWORD
-ENV PASSWORD ${PASSWORD:-secret}
+ENV PASSWORD ${PASSWORD:-oracle}
 
 # get rid of the message: "debconf: unable to initialize frontend: Dialog"
 ENV DEBIAN_FRONTEND noninteractive
