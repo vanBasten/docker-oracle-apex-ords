@@ -37,7 +37,7 @@ echo "Installing ORACLE APEX............................"
 #
 #
 echo "--------------------------------------------------"
-echo "Installing ORACLE APEX............................"
+echo "Installing ORACLE ORDS............................"
 ./scripts/install_ords.sh
 #
 #
